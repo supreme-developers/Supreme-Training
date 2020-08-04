@@ -1,0 +1,32 @@
+﻿@model SSIDocumentControl.Core.DocumentControl.DocumentFolder
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card shadow-sm">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-body">
+                <div class="row">
+                    <div style="width:100%;height:600px">
+                        <ejs-pdfviewer id="pdfviewer"  serviceUrl="/api/PdfViewer"></ejs-pdfviewer>
+                    </div>
+                    </div>
+
+                </div>
+        </div>
+    </div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        alert(window.location.origin);
+        var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
+        pdfViewer.serviceUrl = window.location.origin + '/api/PdfViewer';
+        pdfViewer.load("PDF123.pdf", null);
+     
+    }
+</script>

@@ -1,0 +1,197 @@
+﻿@model SSIDocumentControl.Core.DocumentControl.Document
+@{
+    Layout = null;
+}
+
+
+<form asp-action="UpdateFile" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+    <input type="hidden" asp-for="FolderId" />
+    <input type="hidden" asp-for="MimeType" />
+    <input type="hidden" asp-for="DocId" />
+    <input type="hidden" asp-for="Path" />
+    <input type="hidden" asp-for="UploadDate" />
+    <input type="hidden" asp-for="SortId" />
+
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            <label asp-for="DocumentNumber" class="control-label"></label>
+            <input asp-for="DocumentNumber" class="form-control" required />
+            <span asp-validation-for="DocumentNumber" class="text-danger"></span>
+            <div class="invalid-feedback">
+                Document Number Required
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Revision" class="control-label"></label>
+            <input asp-for="Revision" class="form-control" required />
+            <span asp-validation-for="Revision" class="text-danger"></span>
+            <div class="invalid-feedback">
+                Revision Required
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label class="control-label">Parent Folder</label>
+            <input asp-for="Folder.Name" class="form-control" disabled />
+            @*<ejs-combobox id="folders" dataSource="@ViewBag.data" change="foldersChange"
+                                value="@Model.FolderId > 0 ? Model.FolderId: null"
+                                placeholder="Select a Folder for the Document" popupHeight="230px">
+                    <e-combobox-fields text="Name" value="FolderId" iconCss="fas fa-folder"></e-combobox-fields>
+                </ejs-combobox>*@
+
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label asp-for="DocumentName" class="control-label"></label>
+            <input asp-for="DocumentName" class="form-control" required />
+            <span asp-validation-for="DocumentName" class="text-danger"></span>
+            <div class="invalid-feedback">
+                Please provide a title for the document.
+            </div>
+        </div>
+        <div class="form-group col-md-4 d-none">
+            <label asp-for="ExpiryDate" class="control-label"></label>
+            <ejs-datepicker id="expiryDate" name="expiryDate" ejs-for="@Model.ExpiryDate"></ejs-datepicker>
+            <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label asp-for="Notes" class="control-label"></label>
+            <input asp-for="Notes" class="form-control" />
+            <span asp-validation-for="Notes" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <div class="upload-area d-none">
+                <div class="input-group">
+                    <label asp-for="Path" class="control-label">Current File</label>
+                    <input asp-for="Path" id="filePath" class="form-control" disabled
+                           name="upload" data-required-message="* Select any file"
+                           required data-msg-containerid="uploadError" />
+                    <div class="input-group-append">
+                        <span id="browse" class="input-group-text e-control e-btn e-info"
+                              onclick="browseClick()">Browse...</span>
+                    </div>
+                    <div class="invalid-feedback">
+                        Don't forget to upload your file!
+                    </div>
+                </div>
+                <span asp-validation-for="Path" class="text-danger"></span>
+            </div>
+            <div id="uploadError"></div>
+            <div class="col-md-12">
+                <div class="custom-file">
+                    <input id="UploadFiles" name="UploadFiles" type="file" onchange="uploadChange(event)" class="custom-file-input" />
+                    <label id="lblUploadFiles" class="custom-file-label" for="UploadFiles">Choose New File</label>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" asp-for="SendNotification" class="form-check-input ti-check-box" value="true" />
+            <label asp-for="SendNotification" class="form-check-label" style="padding-left:0px"></label>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button"
+                class="btn btn-danger" data-dismiss="modal">
+            Cancel
+        </button>
+        <input id="submitFile" type="submit" value="Save" class="btn btn-outline-primary" />
+    </div>
+</form>
+<style>
+    #upload:focus {
+        box-shadow: none !important;
+        outline: 0 !important;
+    }
+
+    .control_wrapper {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .e-upload {
+        width: 100%;
+        position: relative;
+        margin-top: 15px;
+    }
+
+    .control_wrapper .e-upload .e-upload-drag-hover {
+        margin: 0;
+    }
+</style>
+
+<script>
+
+    function foldersChange() {
+        console.log($('#FolderId').val());
+        var foldersCombo = document.getElementById('folders').ej2_instances[0];
+        var newFolderId = foldersCombo.value === null ? 'NULL' : foldersCombo.value.toString()
+        $('#FolderId').val(newFolderId);
+    }
+
+
+    function onFileRemove(args) {
+        args.postRawFile = false;
+    }
+
+
+    function browseClick() {
+        document.getElementById('browse').focus();
+       // document.getElementsByClassName('e-file-select-wrap')[0].querySelector('button').click();
+        document.getElementById('UploadFiles').click();
+    
+    };
+
+    function uploadChange(e) {      
+        document.getElementById('Path').value = e.target.files[0].name;
+        document.getElementById('lblUploadFiles').innerHTML = e.target.files[0].name;
+        $('#UploadFiles').val(e.target.files[0].name);
+    };
+    //document.getElementById('UploadFiles').onchange = function () {
+    //    alert('er');
+    //    var fileName = document.getElementById('UploadFiles').files[0].name;
+    //    var pathDisplay = document.getElementById('lblUploadFiles');
+    //    var path = document.getElementById('Path');
+        
+    //    path.value = fileName;
+    //    $(this).next('.custom-file-label').html(fileName);
+        
+    //};
+
+    function onFileSelect(args) {
+        var inputElement = document.getElementById('Path');
+        console.log(args.filesData[0].name);
+        inputElement.value = args.filesData[0].name;
+        $('#upload').val('');
+        $('#upload').val(args.filesData[0].name);
+    }
+
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+

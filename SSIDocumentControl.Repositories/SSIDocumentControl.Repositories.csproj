@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="DocumentAuthorization\AuthorizationRepository.cs" />
+    <Compile Include="DocumentAuthorization\IAuthorizationRepository.cs" />
+    <Compile Include="Documents\DocControlRepository.cs" />
+    <Compile Include="Documents\IDocControlRepository.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="System\ISystemRepository.cs" />
+    <Compile Include="System\SystemRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="Users\IUserRepository.cs" />
+    <Compile Include="Users\UserRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SSIDocumentControl.Data\SSIDocumentControl.Data.csproj" />
+  </ItemGroup>
+
+</Project>

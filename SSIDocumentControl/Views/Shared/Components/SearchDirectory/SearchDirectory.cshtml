@@ -1,0 +1,33 @@
+﻿@using SSIDocumentControl.Core.DocumentControl
+@model List<DirectorySearchViewModel>;
+@{ 
+    bool isAdmin = User.Claims.Any(c => c.Type == "Admin");
+}
+
+<ejs-autocomplete id="directory" showPopupButton="false" popupHeight="400px" 
+                  cssClass="form-control input-lg rounded" select="onSelect"
+                  placeholder="Search all documents and folders..." autofill="false"
+                  suggestionCount="100" dataSource="@Model">
+    <e-autocomplete-fields text="Name" value="Name" iconCss="Icon"></e-autocomplete-fields>
+</ejs-autocomplete>
+
+<script>
+    function onSelect(e) {
+        var folderId = e.itemData.FolderID != null ? e.itemData.FolderID : e.itemData.ParentFolderId;
+        var documentId = e.itemData.DocumentId;
+
+        var isAdmin = '@isAdmin'.toLowerCase() == 'true';
+        //var parentFolderID = e.itemData.ParentFolderId;
+        if (isAdmin) {
+           
+            var url = '@Url.Action("Details", "Documents")';
+            url += '?id=' + folderId + '&docId=' + documentId;
+            window.location.href = url;
+        }
+        else {
+            var url = '@Url.Action("Index", "Documents")';
+            url += '?folderId=' + folderId + '&docId=' + documentId;
+            window.location.href = url;
+        }
+    }
+</script>

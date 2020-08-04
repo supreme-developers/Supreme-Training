@@ -1,0 +1,80 @@
+﻿@using SSIDocumentControl.Core.DocumentControl;
+@model List<TreeViewDocViewModel>
+@using Syncfusion.EJ2
+@{
+    int selectedId = Convert.ToInt32(ViewBag.SelectedId[0]);
+    int? selectedDocId = Convert.ToInt32(ViewBag.SelectedDocId[0]);
+  }
+<h3>My Organizers</h3><br />
+@*@await Component.InvokeAsync("SearchDirectory")
+
+    <br /><br />*@
+<div class="row">
+    <div class="col-md-10">
+        @await Component.InvokeAsync("SearchDirectory")
+    </div>
+    <div class="col-md-2">
+        <form asp-action="Index" asp-controller="Documents" method="post">
+            <button type="submit" class="btn btn-outline-danger btn-lg">Clear Search</button>
+        </form>
+    </div>
+</div><br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-left shadow-lg">
+            <div class="card-header text-white bg-warning  ">
+                Cabinets
+            </div>
+            <div class="card-body p-0">
+                <ejs-treeview id="folders" cssClass="treeListView" expandOn="Click"
+                              nodeClicked="folderClicked" selectedNodes="@ViewBag.SelectedId">
+                    <e-treeview-fields dataSource="Model" id="ID"
+                                       parentId="ParentFolderID" expanded="Expanded"
+                                       iconCss="Icon" hasChildren="HasChild" text="Name">
+
+                    </e-treeview-fields>
+
+                </ejs-treeview>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card shadow-lg">
+            <div class="card-header text-white bg-primary  ">
+                Documents
+            </div>
+            <div class="card-body p-0">
+                <div id="documents" class="treeListView">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<link href="~/css/syncFusionTreeView.css" rel="stylesheet" />
+    <style>
+        .treeListView {
+            height: auto !important;
+            border: 1px solid #dddddd !important;
+            padding-left: 20px !important;
+            overflow-y:auto !important;
+        }
+    </style>*@
+<script>
+
+  
+    document.getElementsByTagName('body')[0].onload = function () {
+        var selectedId = parseInt('@selectedId');
+        var selectedDocId = parseInt('@selectedDocId');
+        if (selectedId > 0)
+            $('#documents').load('/Documents/ViewFolderDocuments', { 'parentId': selectedId, 'docId': selectedDocId });
+    };
+
+    function folderClicked(args) {
+        var treeObj = document.getElementById('folders').ej2_instances[0];      
+        var targetNodeId = treeObj.selectedNodes[0];
+        $('#documents').load('/Documents/ViewFolderDocuments', { 'parentId': targetNodeId });
+    };
+
+
+</script>

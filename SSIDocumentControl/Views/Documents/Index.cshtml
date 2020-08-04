@@ -1,0 +1,62 @@
+﻿
+@model SSIDocumentControl.ViewModels.FolderItemsViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool isAdmin = User.Claims.Any(c => c.Type == "Admin");
+}
+
+
+<div class="card shadow-sm">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-body">
+                @if (isAdmin)
+                {
+                    <div class="row">
+                        <div class="col-md-8">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active" aria-current="page">Home /</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-8">
+                            @await Html.PartialAsync("DirectoryActionsPartial")<br />
+
+                        </div>
+                        <div class="col-md-4">
+                            @await Component.InvokeAsync("SearchDirectory")
+                            @*<ejs-autocomplete id="directory" showPopupButton="false" popupHeight="220px"
+                                      cssClass="form-control input-lg rounded"
+                                      placeholder="<i class='fas fa-search'></i> Search all documents and folders..." autofill="false"
+                                      suggestionCount="5" dataSource="@Model.DirectorySearchViewModel">
+                        <e-autocomplete-fields value="Name" iconCss="Icon"></e-autocomplete-fields>
+                    </ejs-autocomplete>*@
+
+                        </div>
+                    </div>
+                    <hr />
+
+                    @await Component.InvokeAsync("AdminDirectory", new { folderItems = Model })
+                    @*@await Html.PartialAsync("FolderItemsPartial", Model)*@
+
+
+                }
+                else
+                {
+                    <vc:user-directory folder-Id="@Model.SearchFolderId" doc-Id="@Model.SearchDocId"></vc:user-directory>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#directory').addClass('form-control input-lg');
+</script>

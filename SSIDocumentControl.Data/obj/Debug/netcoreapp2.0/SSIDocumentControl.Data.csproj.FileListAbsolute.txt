@@ -1,0 +1,24 @@
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Data.deps.json
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Data.dll
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Data.pdb
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Core.dll
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Core.pdb
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.csprojAssemblyReference.cache
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.csproj.CoreCompileInputs.cache
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.AssemblyInfoInputs.cache
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.AssemblyInfo.cs
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.csproj.CopyComplete
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.dll
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.pdb
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Data.deps.json
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Data.dll
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Data.pdb
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Core.dll
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\bin\Debug\netcoreapp2.0\SSIDocumentControl.Core.pdb
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.csprojAssemblyReference.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.csproj.CoreCompileInputs.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.AssemblyInfoInputs.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.AssemblyInfo.cs
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.csproj.CopyComplete
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.dll
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Data\obj\Debug\netcoreapp2.0\SSIDocumentControl.Data.pdb

@@ -1,0 +1,61 @@
+﻿@model int
+@using Syncfusion.EJ2
+@{
+
+    Layout = null;
+}
+@{
+    var asyncSettings = new Syncfusion.EJ2.Inputs.UploaderAsyncSettings { SaveUrl = @Url.Content("~/Documents/Save"), RemoveUrl = @Url.Content("~/Uploader/Remove") };
+}
+<h5>Upload File(s)</h5>
+<input id="parentFolderId" type="hidden" value="@Model" />
+ @*asyncSettings="@asyncSettings"*@
+
+<ejs-uploader id="UploadFiles" removing="onFileRemove" dropArea=".control-fluid" multiple="false"
+              autoUpload="false" selected="onFileSelect"
+              allowedExtensions="pdf,docx,doc,xlsx">
+</ejs-uploader>
+
+<div class="property-section">
+    <div id="property" title="Properties">
+        <div style=" padding-top:25px;">
+            <ejs-checkbox id="checkAutoUpload"
+                          label="Auto Upload" checked="true" change="onChange"></ejs-checkbox>
+        </div>
+    </div>
+</div>
+<style>
+    .control_wrapper {
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .e-upload {
+        width: 100%;
+        position: relative;
+        margin-top: 15px;
+    }
+
+    .control_wrapper .e-upload .e-upload-drag-hover {
+        margin: 0;
+    }
+</style>
+<script>
+    function onFileRemove(args) {
+        args.postRawFile = false;
+    }
+    var dropElement = document.getElementsByClassName('control-fluid')[0];
+    function onChange(args) {
+        var uploadObj = document.getElementById("UploadFiles")
+        uploadObj.ej2_instances[0].autoUpload = args.checked;
+        uploadObj.ej2_instances[0].clearAll();
+    }
+    function onFileUpload(args) {
+        args.customFormData = [{ 'parentFolderId': document.getElementById("parentFolderId").value }];
+    }
+    function onFileSelect(args) {
+        var inputElement = document.getElementById('upload');
+        inputElement.value = args.filesData[0].name;
+    }
+</script>
+

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rent Account</title>
+    <environment names="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />        
+        <link href="~/css/authenticate.css" rel="stylesheet" />
+
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/css/authenticate.css" rel="stylesheet" />
+        @*get CDNs*@
+    </environment>
+
+</head>
+<body>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+
+    <environment names="Development, Staging,Production">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    </environment>
+    @*<environment names="Staging,Production">
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        </environment>*@
+
+    @RenderSection("scripts", required: false);
+</body>
+</html>

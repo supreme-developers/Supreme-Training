@@ -1,0 +1,25 @@
+﻿@model string
+@{
+    ViewData["Title"] = "ProgramError";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="text-center"><span class="fas fa-frown text-danger fa-5x"></span></div><br />
+        <h1 class="text-center">Error!! <p>Please contact I.T. With the following error message: </p>
+        <p>
+            <small class="text-center">
+                 <p>@TempData["Error"]</p>
+            </small>
+        </p></h1>
+
+        <p class="text-center">
+            <a class="btn btn-danger btn-lg" href='javascript:history.go(-1)' ><i class="fa fa-home"></i> Go Back!</a>
+        </p>
+    </div>
+</div>
+
+
+

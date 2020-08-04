@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="DocumentAuthorization\FolderRole.cs" />
+    <Compile Include="DocumentAuthorization\FolderRoleViewModel.cs" />
+    <Compile Include="DocumentAuthorization\Role.cs" />
+    <Compile Include="DocumentAuthorization\RoleViewModel.cs" />
+    <Compile Include="DocumentAuthorization\UserRole.cs" />
+    <Compile Include="DocumentControl\DirectorySearchViewModel.cs" />
+    <Compile Include="DocumentControl\Document.cs" />
+    <Compile Include="DocumentControl\DocumentFolder.cs" />
+    <Compile Include="DocumentControl\DocumentStatus.cs" />
+    <Compile Include="DocumentControl\MobileDocs.cs" />
+    <Compile Include="DocumentControl\TreeViewDocViewModel.cs" />
+    <Compile Include="DocumentControl\ViewModels\DocVM.cs" />
+    <Compile Include="RentUser.cs" />
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <Compile Include="RentUser.cs" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Identity.Stores">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.identity.stores\2.0.1\lib\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
+  </ItemGroup>
+
+</Project>

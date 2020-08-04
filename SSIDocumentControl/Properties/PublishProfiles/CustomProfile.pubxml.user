@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6V3IojQQb0mSIgo9L14KvQAAAAACAAAAAAADZgAAwAAAABAAAABWxXFPnTiBmqs1xe9SmRp3AAAAAASAAACgAAAAEAAAAJy3etjdRV6Lnmo+q0xnPtkgAAAAoAyeJeJ1WJtGISHH00vgQ9fMx7Q+b8wMekrIHlrVwIQUAAAACe+vV9qpSYTZcib7o1VD0WE7V2k=</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=SSI-SQL%3bDatabase=SSIRent%3bPersist Security Info=True%3bUser ID=Web Users%3bPassword=%24upreme205_webu%24er%24</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

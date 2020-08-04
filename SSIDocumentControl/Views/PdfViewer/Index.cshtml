@@ -1,0 +1,49 @@
+﻿@model PdfViewerViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <a class="btn btn-outline-primary btn-sm print d-none" onclick="isLoading()" asp-route-docpath="@Model.ReadOnlyPath"
+                asp-controller="Documents" asp-action="Print">Print <i class="fas fa-print "></i></a>
+                <a class="btn btn-outline-success btn-sm"  asp-route-docpath="@Model.DownloadPath" 
+                    asp-controller="Documents" asp-action="Download">Download <i class="fas fa-download"></i></a>
+            </div>
+           
+            <div class="col-md-8">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12" style="width:100%;height:auto">
+                <ejs-pdfviewer id="pdfviewer" style="height:800px" serviceUrl="/api/PdfViewer" enableDownload="false"
+                 enablePrint="false" documentPath="@Model.ReadOnlyPath"></ejs-pdfviewer>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function isLoading() {
+            Swal.fire({
+                title: "Document Printing",
+                text: 'This could take a few moments depending on the size of the document.',
+                showCancelButton: false,
+                type: "warning",
+                onBeforeOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+        }
+        @*window.onload = function () {
+                var path = '@Model';
+                console.log(path);
+                var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
+               // pdfViewer.serviceUrl = window.baseurl + 'api/PdfViewer';
+                pdfViewer.load('@Model', null);
+            }*@
+        </script>

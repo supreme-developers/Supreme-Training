@@ -1,0 +1,155 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
+    <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+    <Compile Remove="wwwroot\UploadFiles\Eric%27s Folder\**" />
+    <Compile Remove="wwwroot\UploadFiles\Folder 2\**" />
+    <Content Remove="wwwroot\UploadFiles\Eric%27s Folder\**" />
+    <Content Remove="wwwroot\UploadFiles\Folder 2\**" />
+    <EmbeddedResource Remove="wwwroot\UploadFiles\Eric%27s Folder\**" />
+    <EmbeddedResource Remove="wwwroot\UploadFiles\Folder 2\**" />
+    <None Remove="wwwroot\UploadFiles\Eric%27s Folder\**" />
+    <None Remove="wwwroot\UploadFiles\Folder 2\**" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\DocAuthorizationController.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MobileDocsController.cs" />
+    <Compile Include="Controllers\PdfViewerController.cs" />
+    <Compile Include="Models\Constants\CacheEntryConstants.cs" />
+    <Compile Include="Models\Constants\SystemConstants.cs" />
+    <Compile Include="Models\ErrorViewModel.cs" />
+    <Compile Include="Models\FolderCrumbs.cs" />
+    <Compile Include="Models\SystemModels\ISignInManager.cs" />
+    <Compile Include="Models\SystemModels\IUserSession.cs" />
+    <Compile Include="Models\SystemModels\SignInManager.cs" />
+    <Compile Include="Models\SystemModels\UserSession.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewComponents\AdminDirectoryViewComponent.cs" />
+    <Compile Include="ViewComponents\CreateFileViewComponent.cs" />
+    <Compile Include="ViewComponents\CreateFolderViewComponent.cs" />
+    <Compile Include="ViewComponents\CreateRoleViewComponent.cs" />
+    <Compile Include="ViewComponents\EditFileViewComponent.cs" />
+    <Compile Include="ViewComponents\EditFolderViewComponent.cs" />
+    <Compile Include="ViewComponents\SearchDirectoryViewComponent.cs" />
+    <Compile Include="ViewComponents\UploadFilesViewComponent.cs" />
+    <Compile Include="ViewComponents\UserDirectoryViewComponent.cs" />
+    <Compile Include="ViewComponents\UserDocumentsViewComponent.cs" />
+    <Compile Include="ViewModels\DocumentFolderViewModel.cs" />
+    <Compile Include="ViewModels\FolderItemsViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MngMobileDocListsVM.cs" />
+    <Compile Include="ViewModels\PdfViewerViewModel.cs" />
+    <Compile Include="ViewModels\RoleSetupViewModel.cs" />
+    <Compile Include="ViewModels\RolesViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Documents\Create.cshtml" />
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <Content Include="appsettings.Development.json" />
+    <Content Include="appsettings.json" />
+    <Content Include="bundleconfig.json" />
+    <Content Include="Properties\launchSettings.json" />
+    <Content Include="wwwroot\css\site.css" />
+    <Content Include="wwwroot\css\site.min.css" />
+    <Content Include="wwwroot\favicon.ico" />
+    <Content Include="wwwroot\lib\bootstrap\.bower.json" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\lib\jquery-validation-unobtrusive\.bower.json" />
+    <Content Include="wwwroot\lib\jquery-validation\.bower.json" />
+    <Content Include="wwwroot\lib\jquery\.bower.json" />
+    <Content Include="wwwroot\lib\jquery\LICENSE.txt" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <PackageReference Include="epplus.core" Version="1.5.4" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Azure.KeyVault" Version="2.3.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="2.8.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="16.4.0.42" />
+    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="16.4.0.42" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="16.4.0.42" />
+    <PackageReference Include="uaparser" Version="3.1.36" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Account\LogIn.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\DocAuthorization\Index.cshtml" />
+    <None Include="Views\DocAuthorization\Delete.cshtml" />
+    <None Include="Views\Documents\Delete.cshtml" />
+    <None Include="Views\Documents\Index.cshtml" />
+    <None Include="Views\Documents\Details.cshtml" />
+    <None Include="Views\Documents\Edit.cshtml" />
+    <None Include="Views\PdfViewer\Index.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_LogInLayout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\site.min.js" />
+    <!--<None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />-->
+    <None Include="wwwroot\lib\bootstrap_remove\dist\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\lib\bootstrap_remove\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\lib\bootstrap_remove\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap_remove\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap_remove\dist\js\npm.js" />
+    <None Include="wwwroot\lib\bootstrap_remove\LICENSE" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SSIDocumentControl.Data\SSIDocumentControl.Data.csproj" />
+    <ProjectReference Include="..\SSIDocumentControl.Repositories\SSIDocumentControl.Repositories.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\DocumentModels\" />
+    <Folder Include="Models\ExtensionModels\" />
+    <Folder Include="Views\Shared\PartialViews\" />
+  </ItemGroup>
+
+</Project>

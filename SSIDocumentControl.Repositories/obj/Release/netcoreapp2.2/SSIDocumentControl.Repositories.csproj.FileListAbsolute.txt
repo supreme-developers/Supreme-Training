@@ -1,0 +1,28 @@
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Repositories.deps.json
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Repositories.dll
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Repositories.pdb
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Core.dll
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Data.dll
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Data.pdb
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Core.pdb
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.csprojAssemblyReference.cache
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.csproj.CoreCompileInputs.cache
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.AssemblyInfoInputs.cache
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.AssemblyInfo.cs
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.csproj.CopyComplete
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.dll
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.pdb
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Repositories.deps.json
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Repositories.dll
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Repositories.pdb
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Core.dll
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Data.dll
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Data.pdb
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\bin\Release\netcoreapp2.2\SSIDocumentControl.Core.pdb
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.csprojAssemblyReference.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.csproj.CoreCompileInputs.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.AssemblyInfoInputs.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.AssemblyInfo.cs
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.csproj.CopyComplete
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.dll
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Repositories\obj\Release\netcoreapp2.2\SSIDocumentControl.Repositories.pdb

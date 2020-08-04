@@ -1,0 +1,104 @@
+{
+    "components": [
+        "button",
+        "check-box",
+        "combo-box",
+        "datepicker",
+        "daterangepicker",
+        "datetimepicker",
+        "drop-down-list",
+        "uploader",
+        "document-editor",
+        "document-editor-container",
+        "grid",
+        "inplace-editor",
+        "multi-select",
+        "pdfviewer"
+    ],
+    "minified": true,
+    "injectables": {
+        "document-editor": [
+            "Print",
+            "SfdtExport",
+            "WordExport",
+            "TextExport",
+            "Selection",
+            "Search",
+            "Editor",
+            "EditorHistory",
+            "OptionsPane",
+            "ContextMenu",
+            "ImageResizer",
+            "HyperlinkDialog",
+            "TableDialog",
+            "BookmarkDialog",
+            "TableOfContentsDialog",
+            "PageSetupDialog",
+            "ParagraphDialog",
+            "ListDialog",
+            "StyleDialog",
+            "StylesDialog",
+            "BulletsAndNumberingDialog",
+            "FontDialog",
+            "TablePropertiesDialog",
+            "BordersAndShadingDialog",
+            "TableOptionsDialog",
+            "CellOptionsDialog"
+        ],
+        "document-editor-container": [
+            "Toolbar"
+        ],
+        "grid": [
+            "Filter",
+            "Page",
+            "Selection",
+            "Sort",
+            "Group",
+            "Reorder",
+            "RowDD",
+            "DetailRow",
+            "Toolbar",
+            "Aggregate",
+            "Search",
+            "VirtualScroll",
+            "Edit",
+            "Resize",
+            "ExcelExport",
+            "PdfExport",
+            "CommandColumn",
+            "ContextMenu",
+            "Freeze",
+            "ColumnMenu",
+            "ColumnChooser",
+            "ForeignKey"
+        ],
+        "inplace-editor": [
+            "AutoComplete",
+            "ColorPicker",
+            "ComboBox",
+            "DateRangePicker",
+            "MultiSelect",
+            "Rte",
+            "Slider",
+            "TimePicker"
+        ],
+        "multi-select": [
+            "CheckBoxSelection"
+        ],
+        "pdfviewer": [
+            "LinkAnnotation",
+            "BookmarkView",
+            "Magnification",
+            "ThumbnailView",
+            "Toolbar",
+            "Navigation",
+            "Print",
+            "TextSelection",
+            "TextSearch"
+        ]
+    },
+    "themes": [
+        "fabric"
+    ],
+    "name": "ej2Resources"
+}

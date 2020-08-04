@@ -1,0 +1,46 @@
+﻿@using SSIDocumentControl.Core.DocumentControl;
+@model IEnumerable<Document>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th align="center">
+                Doc #
+            </th>
+            <th>
+                Name
+            </th>
+            <th>Revision</th>
+            <th>Revision Date</th>
+        </tr>
+    </thead>
+    @foreach (var doc in Model)
+    {
+        //var expired = DateTime.Compare(DateTime.Now, Convert.ToDateTime(doc.ExpiryDate)) < 0 ? false : true;
+        //string expiredLink = "";
+        //if (expired) { expiredLink = "btn disabled"; }
+    <tr>
+        
+        <td class="text-lg-left">
+         
+            <a asp-controller="Documents" asp-action="SetPdfExpiration" asp-route-id="@doc.DocId" target="_blank">
+                @if (doc.MimeType == "pdf")
+                {
+                    <i class="fas fa-file-pdf fa-2x p-1" style="color:#ea5050"></i>
+                }
+                @Html.DisplayFor(modelItem => doc.DocumentNumber)
+            </a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => doc.DocumentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => doc.Revision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => doc.UploadDate)
+        </td>
+    </tr>
+    }
+
+</table>

@@ -1,0 +1,18 @@
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Core\bin\Release\netcoreapp2.0\SSIDocumentControl.Core.deps.json
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Core\bin\Release\netcoreapp2.0\SSIDocumentControl.Core.dll
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Core\bin\Release\netcoreapp2.0\SSIDocumentControl.Core.pdb
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.csproj.CoreCompileInputs.cache
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.AssemblyInfoInputs.cache
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.AssemblyInfo.cs
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.dll
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.pdb
+D:\Development\TFS\Supreme\.NET Code\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.csprojAssemblyReference.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Core\bin\Release\netcoreapp2.0\SSIDocumentControl.Core.deps.json
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Core\bin\Release\netcoreapp2.0\SSIDocumentControl.Core.dll
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Core\bin\Release\netcoreapp2.0\SSIDocumentControl.Core.pdb
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.csprojAssemblyReference.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.csproj.CoreCompileInputs.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.AssemblyInfoInputs.cache
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.AssemblyInfo.cs
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.dll
+D:\Development\SourceCode\Supreme\SSIDocumentControl\SSIDocumentControl.Core\obj\Release\netcoreapp2.0\SSIDocumentControl.Core.pdb

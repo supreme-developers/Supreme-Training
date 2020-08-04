@@ -1,0 +1,116 @@
+﻿@model RoleSetupViewModel
+@using SSIDocumentControl.Core;
+@using Syncfusion.EJ2
+
+@{
+    Layout = null;
+}
+
+
+<form asp-action="CreateRole">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-3 offset-3 ">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control input-lg" required />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control input-lg" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-3">
+            <h6 class="text-primary">Drag and Drop Users to Assign and Unassign</h6><br />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 offset-3">
+            <h6>Unassigned Users</h6>
+            <ejs-treeview id="element" cssClass="treeListView shadow-lg" allowDragAndDrop="true" allowMultiSelection="true"
+                          nodeDragging="onDragStop" nodeDragStop="onDragStop">
+                <e-treeview-fields dataSource="Model.AllUsers"
+                                   id="UserId" text="FullName"></e-treeview-fields>
+            </ejs-treeview>
+
+        </div>
+        <div class="col-md-2">
+            <h6>Assigned Users</h6>
+            <div>
+                <ejs-treeview id="assignedUsersTree" cssClass="treeListView shadow-lg" allowMultiSelection="true" allowDragAndDrop="true"
+                              nodeDragStop="onDragStopAssigned" nodeDropped="nodeDropped">
+                    <e-treeview-fields dataSource="Model.AssignedUsers" id="UserId"
+                                       text="FullName"></e-treeview-fields>
+                </ejs-treeview>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h6>Assign Role to Cabinet Folders</h6>
+
+            <ejs-treeview id="folders" cssClass="treeListView shadow-lg" showCheckBox="true" 
+            checkedNodes="ViewBag.checkedNodes" nodeChecked="onChecked">
+                <e-treeview-fields dataSource="Model.FolderRoles" id="FolderId" 
+                                   iconCss="NameWIcon" imageURL="image" text="FolderName" selected="Assigned">
+                </e-treeview-fields>
+            </ejs-treeview>
+        </div>
+    </div><br />
+    <div class="row">
+        <div class="form-group offset-5 col-2">
+            <input type="submit" value="@ViewBag.ButtonText" class="btn btn-primary btn-sm  btn-block" />
+        </div>
+    </div>
+
+    @Html.HiddenFor(model => model.AssignedUsersStringList)
+    @Html.HiddenFor(model => model.AssignedFolerRoles)
+    @Html.HiddenFor(model => model.Id)
+
+</form>
+
+
+<link href="~/css/syncFusionTreeView.css" rel="stylesheet" />
+
+<script>
+    function onChecked(args) {
+        var folders;
+        $('#AssignedFolerRoles').val('');
+        console.log(this.checkedNodes);
+        $('#AssignedFolerRoles').val(JSON.stringify(this.checkedNodes));
+     
+    }
+    function onDragStopAssigned(args) {        
+        var users;
+        $('#AssignedUsersStringList').val('');
+        setTimeout(() => {
+            users = this.getTreeData();
+            $('#AssignedUsersStringList').val(JSON.stringify(users));
+            console.log(users);
+        }, 1500);
+    }
+    function onDragStop(args) {
+        //Block the Child Drop operation in TreeView
+       
+        var draggingItem = document.getElementsByClassName("e-drop-in");
+      
+        if (draggingItem.length == 1) {
+            draggingItem[0].classList.add('e-no-drop');
+            args.cancel = true;
+        }
+    }
+ 
+    function nodeDropped(args) {
+        console.log('dropped');
+        var users = this.getTreeData();
+        $('#AssignedUsersStringList').val(JSON.stringify(users));
+        
+    }
+</script>
+<ejs-scripts></ejs-scripts>

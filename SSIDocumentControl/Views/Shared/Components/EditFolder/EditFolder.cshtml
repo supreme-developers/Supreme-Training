@@ -1,0 +1,28 @@
+﻿@model DocumentFolderViewModel
+
+@{
+    Layout = null;
+}
+
+<form asp-action="UpdateFolder">
+    <input type="hidden" asp-for="ParentFolderId" />
+    <input type="hidden" asp-for="FolderStatusId" />
+    <input type="hidden" asp-for="FolderId" />
+    <input type="hidden" asp-for="OldFolderName" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="input-group-lg col-md-lg">
+        <label asp-for="FolderName" class="control-label"></label>
+        <input asp-for="FolderName" class="form-control input-lg" />
+        <span asp-validation-for="FolderName" class="text-danger"></span>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <input type="submit" value="Save" class="btn btn-outline-primary" />
+    </div>
+</form>
+       
+
+
+

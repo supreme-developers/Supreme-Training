@@ -1,0 +1,156 @@
+﻿@model IEnumerable<SSIDocumentControl.Core.DocumentAuthorization.RoleViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card shadow-sm">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <button id="createRole" type="button" data-toggle="modal" data-target="#roleModal"
+                              data-role-id="null" class="btn btn-inverse-outline-success btn-lg">
+                            <span class="fas fa-plus"></span> New Role
+                        </button>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="modal" id="roleModal" tabindex="-1" role="dialog"
+                                     aria-labelledby="roleModallabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="roleModalLabel">Create New Role</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body bg-white">     
+                                                <span class="fas fa-spinner fa-spin" ></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Name)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TotalCabinetFolders)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TotalMembers)
+                                    </th>
+
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TotalCabinetFolders)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TotalMembers)
+                                        </td>
+                                        <td>
+                                            <button type="button" data-toggle="modal" 
+                                                    data-target="#roleModal"
+                                                    class="btn btn-sm btn-outline-primary" data-role-id="@item.RoleId">
+                                                <span class="fas fa-pencil"></span> Edit
+                                            </button>
+                                            <button type="button"  data-role-id="@item.RoleId" 
+                                                    class="btn btn-sm btn-outline-danger deleteRole">
+                                                <span class="fas fa-times"></span> Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+<script type="text/javascript">
+    
+    $('.deleteRole').click(function () {
+        Swal.fire({
+            title: 'Are you sure you want to delete this role?',
+            text: "After this, there is no turning back!",
+            type: 'error',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, destroy this Role!'
+        })
+        .then((result) => {
+            if (result.value) {
+                DeleteRole($(this).data('role-id'));
+            }
+        })
+    });
+    $('#roleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var roleId = button.data('role-id');
+        //set header text based on action (edit or create)
+        if (roleId)
+            $('#roleModalLabel').html('Edit Role');
+        else
+            $('#roleModalLabel').html('Create Role');
+        $('#roleModal .modal-body').load('/DocAuthorization/ManageRole', { 'roleId': roleId });
+
+    });
+
+    function DeleteRole(roleId) {
+
+        $.ajax({
+         url: "/DocAuthorization/DeleteRole/" + roleId,
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+        success: function () {
+            Swal.fire("Role Successfully Deleted!", {
+                icon: "success",
+            });
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+        },
+        error: function () {
+            swal("There was a problem deleting the role! Please try again or contact I.T.", {
+                icon: "error",
+            });
+        }
+    });
+    }
+
+</script>
+}

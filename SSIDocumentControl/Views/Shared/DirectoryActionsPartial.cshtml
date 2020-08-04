@@ -1,0 +1,27 @@
+﻿
+<button type="button" data-toggle="modal" data-target="#newFolderModal"
+        class="btn btn-inverse-warning btn-lg">
+    <span class="fas fa-plus"></span> New Folder
+</button>
+<button type="button" data-toggle="modal" data-target="#newFileModal"
+        class="btn btn-outline-primary btn-lg">
+    <span class="fas fa-upload"></span> New File
+</button>
+<div class="row">
+    <div class="col-12">
+        <div class="modal fade" id="newFolderModal" tabindex="-1" role="dialog" aria-labelledby="newFolder" aria-hidden="true">            
+            <vc:create-folder></vc:create-folder>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="modal fade" id="newFileModal" tabindex="-1" role="dialog"
+             aria-labelledby="newFile" aria-hidden="true">
+            <vc:create-file doc-id="0"></vc:create-file>
+            
+        </div>
+    </div>
+</div>

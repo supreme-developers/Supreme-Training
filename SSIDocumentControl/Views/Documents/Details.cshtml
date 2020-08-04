@@ -1,0 +1,63 @@
+﻿@model SSIDocumentControl.ViewModels.FolderItemsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card shadow-sm">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a asp-action="Index">Home </a>
+                                </li>
+                                @foreach (var crumb in Model.PathCrumbs)
+                                {
+                                    var classes = (crumb.Id != Model.ParentFolder.FolderId) ? "breadcrumb-item active" : "breadcrumb-item";
+                                    <li class="@classes">
+                                        @if (crumb.Id != Model.ParentFolder.FolderId)
+                                        {
+                                            <a asp-action="Details" asp-route-id="@crumb.Id">@crumb.Name</a>
+                                        }
+                                        else
+                                        {
+                                            <a>@crumb.Name </a>
+                                        }
+                                    </li>
+                                }
+                                <li class="ml-2 ">
+                                    <span class="fas fa-folder-open text-warning"></span>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-8">
+                        @await Html.PartialAsync("DirectoryActionsPartial")
+                    </div>
+                    <div class="col-md-4">
+                        @await Component.InvokeAsync("SearchDirectory")
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-12">
+                        <div class="modal fade" id="newFolderModal" tabindex="-1" role="dialog" aria-labelledby="newFolder" aria-hidden="true">
+                            @await Component.InvokeAsync("CreateFolder")
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("AdminDirectory", new { folderItems = Model })
+            </div>
+
+        </div>
+    </div>  
+</div>

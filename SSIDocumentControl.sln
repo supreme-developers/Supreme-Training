@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSIDocumentControl.Data", "SSIDocumentControl.Data\SSIDocumentControl.Data.csproj", "{20666CF0-4C28-4017-8581-65FE5F014D48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{326D9FF6-8F0C-4579-B259-8BA3FAF4BF22}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSIDocumentControl.Core", "SSIDocumentControl.Core\SSIDocumentControl.Core.csproj", "{F32C5157-8A69-4994-862A-034EDD95EC96}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSIDocumentControl.Repositories", "SSIDocumentControl.Repositories\SSIDocumentControl.Repositories.csproj", "{242A789D-2AA8-4516-87BA-3E28BC8862EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSIDocumentControl", "SSIDocumentControl\SSIDocumentControl.csproj", "{3A8F478F-BE1F-46DE-B423-116758F85E15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20666CF0-4C28-4017-8581-65FE5F014D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20666CF0-4C28-4017-8581-65FE5F014D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20666CF0-4C28-4017-8581-65FE5F014D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20666CF0-4C28-4017-8581-65FE5F014D48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F32C5157-8A69-4994-862A-034EDD95EC96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F32C5157-8A69-4994-862A-034EDD95EC96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F32C5157-8A69-4994-862A-034EDD95EC96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F32C5157-8A69-4994-862A-034EDD95EC96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{242A789D-2AA8-4516-87BA-3E28BC8862EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242A789D-2AA8-4516-87BA-3E28BC8862EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242A789D-2AA8-4516-87BA-3E28BC8862EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242A789D-2AA8-4516-87BA-3E28BC8862EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8F478F-BE1F-46DE-B423-116758F85E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8F478F-BE1F-46DE-B423-116758F85E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8F478F-BE1F-46DE-B423-116758F85E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8F478F-BE1F-46DE-B423-116758F85E15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{20666CF0-4C28-4017-8581-65FE5F014D48} = {326D9FF6-8F0C-4579-B259-8BA3FAF4BF22}
+		{F32C5157-8A69-4994-862A-034EDD95EC96} = {326D9FF6-8F0C-4579-B259-8BA3FAF4BF22}
+		{242A789D-2AA8-4516-87BA-3E28BC8862EA} = {326D9FF6-8F0C-4579-B259-8BA3FAF4BF22}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AF8947D-A34E-4320-8FEB-CD92316A2AED}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://ssi-tfs:8080/tfs/supremeservicescollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SSIDocumentControl.Core\\SSIDocumentControl.Core.csproj
+		SccProjectTopLevelParentUniqueName1 = SSIDocumentControl.sln
+		SccProjectName1 = SSIDocumentControl.Core
+		SccLocalPath1 = SSIDocumentControl.Core
+		SccProjectUniqueName2 = SSIDocumentControl.Data\\SSIDocumentControl.Data.csproj
+		SccProjectTopLevelParentUniqueName2 = SSIDocumentControl.sln
+		SccProjectName2 = SSIDocumentControl.Data
+		SccLocalPath2 = SSIDocumentControl.Data
+		SccProjectUniqueName3 = SSIDocumentControl.Repositories\\SSIDocumentControl.Repositories.csproj
+		SccProjectTopLevelParentUniqueName3 = SSIDocumentControl.sln
+		SccProjectName3 = SSIDocumentControl.Repositories
+		SccLocalPath3 = SSIDocumentControl.Repositories
+		SccProjectUniqueName4 = SSIDocumentControl\\SSIDocumentControl.csproj
+		SccProjectName4 = SSIDocumentControl
+		SccLocalPath4 = SSIDocumentControl
+	EndGlobalSection
+EndGlobal

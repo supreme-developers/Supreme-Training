@@ -1,0 +1,237 @@
+﻿@model MngMobileDocListsVM
+@using Syncfusion.EJ2
+@using Syncfusion.EJ2.Lists;
+@using SSIDocumentControl.Core.DocumentControl.ViewModels;
+@{
+    ViewData["Title"] = "ManageMobileDocs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card shadow-sm">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="card-body">
+                <h3>Manage Mobile Documents</h3><hr />
+                <form asp-action="DesignateDocsAsync">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="e-input-group">
+                                @* <input class="e-input" id="searchBox" name='input' type="text" placeholder="Search" />*@
+                                <ejs-maskedtextbox id="search" change="searchNodes" placeholder="Filter Documents"></ejs-maskedtextbox>
+                            </div>
+                        </div>
+                    </div><br />
+                          <div class="row">
+                              
+                              <div class="col-md-6 ">
+                                  <h6>Documents</h6>
+                                  <span id="docSpinner" class="fas fa-spinner fa-spin"></span>
+                                  <ejs-treeview id="nonMobileList" cssClass="listview shadow-lg" allowMultiSelection="true" 
+                                        allowDragAndDrop="true" showCheckBox="true" 
+                                                nodeDragging="onDragStop" nodeDragStop="onDragStop" dataBound="dataBound">
+                                      <e-treeview-fields dataSource="Model.NonMobileDocs" id="DocId"  hasChildren="false"
+                                                         text="DocName"></e-treeview-fields>
+                                  </ejs-treeview>
+
+                                  @*<ejs-listview enable="true" id="nonMobile" showHeader="false" drag cssClass="listview">
+            <e-listview-fieldsettings id="docId" text="docName">
+            </e-listview-fieldsettings>
+            <e-data-manager url="@Url.Action("GetNonMobileDocs", "MobileDocs")" adaptor="UrlAdaptor">
+            </e-data-manager>
+        </ejs-listview>*@
+
+                              </div>
+                              <div class="col-md-6">
+                                  <h6>Mobile Documents</h6>
+                                  <div>
+                                      <span id="mobileDocSpinner" class="fas fa-spinner fa-spin"></span>
+                                      <ejs-treeview id="mobileList" cssClass="listview shadow-lg" allowMultiSelection="true" showCheckBox="true"  allowDragAndDrop="true"
+                                                    nodeDragStop="onDragStopAssigned" nodeDropped="nodeDropped" dataBound="mobileDataBound">
+                                          <e-treeview-fields dataSource="(List<DocVM>)Model.MobileDocs" id="DocId"
+                                                             text="DocName"></e-treeview-fields>
+                                      </ejs-treeview>
+                                      @*<ejs-listview enable="true" id="mobileDocList" showHeader="false" headerTitle="" cssClass="listview">
+            <e-listview-fieldsettings id="docId" text="docName">
+            </e-listview-fieldsettings>
+            <e-data-manager url="@Url.Action("GetMobileDocs", "MobileDocs")" adaptor="UrlAdaptor">
+            </e-data-manager>
+        </ejs-listview>*@
+                                  </div>
+                              </div>
+                          </div><br />
+                    <div class="row">
+                        <div class="col-md-2 offset-5">
+                            <button class="btn btn-primary btn-block">Save</button>
+                        </div>
+                    </div>
+                    @Html.HiddenFor(model => model.AssignedMobileDocs)
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+<style>
+    .listview {
+        height: 350px;
+        border: 2px solid gray;
+        overflow-y: scroll;
+        border-radius: 2px;
+    }
+     .e-frame{
+        display:none !important;
+    }
+    .e-treeview > .e-ul {
+      -webkit-overflow-scrolling : touch;
+        overflow:hidden !important;
+    }
+</style>
+<script type="text/javascript">
+
+    var original = [];
+    //document.getElementById("searchBox").addEventListener("keyup", onKeyUp);
+    var ignoreAccent = false;
+   
+
+    function searchNodes(args) {
+        var nonMobileList = (document.getElementById("nonMobileList")).ej2_instances[0];
+
+        @*var nonMobileData = @(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.NonMobileDocs)));
+        var mobileData = @(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.MobileDocs)));*@
+
+        if (!ignoreAccent) {
+            original = nonMobileList.getTreeData();
+            ignoreAccent = true
+        }
+        else {
+            var matchedDataSource = [];
+            var treeData = JSON.parse(JSON.stringify(original));
+            for (let i = 0; i < treeData.length; i++) {
+                let filteredChild = nestedChildFilter(args.value, treeData[i]);
+                if (filteredChild !== null) { matchedDataSource.push(filteredChild); }
+            }
+            console.log('matchedDataSource',matchedDataSource);
+            nonMobileList.fields = { dataSource: matchedDataSource, id: 'DocId', text: 'DocName', hasChildren: 'hasChild' };
+        }
+
+
+    }
+    function nestedChildFilter(value, node) {
+        var treeObj = (document.getElementById("nonMobileList")).ej2_instances[0];
+        let children = node[treeObj.fields.child];
+        if (children == null) {
+            return (isMatchedNode(value, node)) ? node : null;
+        } else {
+            let matchedChildren = [];
+            for (let i = 0; i < children.length; i++) {
+                let filteredChild = nestedChildFilter(value, children[i]);
+                if (filteredChild !== null) { matchedChildren.push(filteredChild); }
+            }
+            if (matchedChildren.length !== 0) {
+                node[treeObj.fields.child] = matchedChildren;
+                return node;
+            } else {
+                node[treeObj.fields.child] = null;
+                return (isMatchedNode(value, node)) ? node : null;
+            }
+        }
+    }
+
+    function isMatchedNode(value, node) {
+        var treeObj = (document.getElementById("nonMobileList")).ej2_instances[0];
+        let checkValue = node[treeObj.fields.text];
+        checkValue = checkValue.toLowerCase();
+        value = value.toLowerCase();
+        return checkValue.indexOf(value) !== -1;
+    }
+
+    function dataBound() {           
+        $('#docSpinner').addClass('d-none');
+    } function mobileDataBound() {
+        $('#mobileDocSpinner').addClass('d-none');
+    }
+    function onDragStopAssigned(args) {
+        var users;
+
+        $('#AssignedMobileDocs').val('');
+        setTimeout(() => {
+            docs = this.getTreeData();
+            $('#AssignedMobileDocs').val(JSON.stringify(docs));
+           
+        }, 200);
+    }
+
+    function onDragStop(args) {
+        //Block the Child Drop operation in TreeView
+
+        var draggingItem = document.getElementsByClassName("e-drop-in");
+
+        if (draggingItem.length == 1) {
+            draggingItem[0].classList.add('e-no-drop');
+            args.cancel = true;
+        }
+    }
+
+    function nodeDropped(args) {
+
+        var docs = this.getTreeData();
+        var mobileDocIds = [];
+        var mobileDoc;
+        $.each(docs, function (index, d) {
+            mobileDoc = { docId: d.DocId }
+            mobileDocIds.push(mobileDoc);
+        });
+       
+        $('#AssignedMobileDocs').val(JSON.stringify(mobileDocIds));
+    }
+            //function onKeyUp() {
+            //    var nonMobileListObj = (document.getElementById("nonMobile")).ej2_instances[0];
+            //    var mobileDocListObj = (document.getElementById("mobileDocList")).ej2_instances[0];
+            //    var value = (document.getElementById("searchBox")).value;
+            //    var newNonMobileList;
+            //    var newMobileList;
+
+            //    var nonMobileList = new ej.data.DataManager({ url: "/MobileDocs/GetNonMobileDocs", adaptor: new ej.data.UrlAdaptor }).executeQuery(new ej.data.Query()).then((e) => {
+            //        (e.result).forEach((nonMobileList) => {
+            //            newNonMobileList = e.result;
+            //        });
+            //        myfilter();
+            //    });
+
+            //    var mobileList = new ej.data.DataManager({ url: "/MobileDocs/GetMobileDocs", adaptor: new ej.data.UrlAdaptor }).executeQuery(new ej.data.Query()).then((e) => {
+            //        (e.result).forEach((mobileList) => {
+            //            newMobileList = e.result;
+            //        });
+            //        myfilter();
+            //    });
+
+
+            //    function myfilter() {
+            //        var nonMobileData = new ej.data.DataManager(newNonMobileList).executeLocal(
+            //            new ej.data.Query().where("docName", "contains", value, true)
+            //        );
+            //        var mobileData = new ej.data.DataManager(newMobileList).executeLocal(
+            //            new ej.data.Query().where("docName", "contains", value, true)
+            //        );
+
+            //        if (!value) {
+            //            nonMobileListObj.dataSource = newNonMobileList;
+            //            mobileDocListObj.dataSource = newMobileList;
+
+            //        } else {
+            //            nonMobileListObj.dataSource = nonMobileData;
+            //            mobileDocListObj.dataSource = mobileData;
+            //        }
+            //        nonMobileListObj.refresh();
+            //        mobileDocListObj.refresh();
+            //    }
+            //}
+</script>
+
+@section Scripts{
+
+}
