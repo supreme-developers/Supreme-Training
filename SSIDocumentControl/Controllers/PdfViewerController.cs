@@ -44,7 +44,8 @@ namespace SSIDocumentControl.Controllers
             {
                 if (bool.Parse(jsonObject["isFileName"]))
                 {
-                    string documentPath = GetDocumentPath(jsonObject["document"]);
+                    //string documentPath = GetDocumentPath(jsonObject["document"]);
+                    string documentPath =jsonObject["document"];
                     if (!string.IsNullOrEmpty(documentPath))
                     {
                         byte[] bytes = System.IO.File.ReadAllBytes(documentPath);

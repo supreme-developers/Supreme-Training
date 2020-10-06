@@ -1,8 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SSIDocumentControl.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -54,6 +57,39 @@ namespace SSIDocumentControl.Repositories.System
 
                 throw;
             }
+        }
+
+        public string GetUploadPath()
+        {
+            var flag = new SqlParameter("@SysFlagValue", "DocControlLocation");
+            string path = "";
+            var conn = _documentContext.Database.GetDbConnection();
+            try
+            {
+                conn.Open();
+                using (var command = conn.CreateCommand())
+                {
+                    string query = "exec sp_Sys_GetSysFlagValue @SysFlagValue";
+                    command.Parameters.Add(flag);
+                    command.CommandText = query;
+                    DbDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        path = reader["SysFlagValue"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+                
+            }
+            return path;
         }
     }
 }

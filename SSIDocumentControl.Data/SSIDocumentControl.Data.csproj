@@ -19,9 +19,6 @@
     <Compile Remove="Migrations\20190116223114_init.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="DocumentContext.cs" />
-  </ItemGroup>
 
   <!--<ItemGroup>
     <Compile Include="DocumentContext.cs" />

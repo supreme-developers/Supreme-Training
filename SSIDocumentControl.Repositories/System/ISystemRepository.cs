@@ -5,5 +5,6 @@ namespace SSIDocumentControl.Repositories.System
     public interface ISystemRepository
     {
         Task LogSignIn(string url, int userId);
+        string GetUploadPath();
     }
 }

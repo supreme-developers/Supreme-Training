@@ -28,6 +28,7 @@ using SSIDocumentControl.Models.Constants;
 using System.Diagnostics;
 using System.Net.Mime;
 using UAParser;
+using System.Security;
 
 namespace SSIDocumentControl.Controllers
 {
@@ -38,13 +39,16 @@ namespace SSIDocumentControl.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserSession _userSession;
         private IHostingEnvironment _hostingEnv;
-        private const string _networkDocPath = @"\\SSI-FS\DocumentControl\";
+        private string _networkDocPath = "";
 
         public DocumentsController(IUnitOfWork unitOfWork,IUserSession userSession, IHostingEnvironment env)
         {
             _unitOfWork = unitOfWork;
             _userSession = userSession;
             _hostingEnv = env;
+            _networkDocPath = _unitOfWork.SystemRepo.GetUploadPath();
+
+
         }
         public async Task<IActionResult> Index(int? folderId, int? docId)
         {
@@ -97,7 +101,7 @@ namespace SSIDocumentControl.Controllers
         public async Task<IActionResult> Create(DocumentFolderViewModel documentFolder)
         {
             var invalidChars = Path.GetInvalidFileNameChars();
-
+            
             if (ModelState.IsValid)
             {
                 string validFolderName = new string(documentFolder.FolderName
@@ -147,6 +151,7 @@ namespace SSIDocumentControl.Controllers
         public async Task<IActionResult> UpdateFolder(DocumentFolderViewModel documentFolder)
         {
             var invalidChars = Path.GetInvalidFileNameChars();
+           
             string validFolderName = new string(documentFolder.FolderName
                                           .Where(x => !invalidChars.Contains(x))
                                           .ToArray());
@@ -421,32 +426,67 @@ namespace SSIDocumentControl.Controllers
             //}
 
             var stream = new FileStream(pdfPaths.ReadOnlyPath, FileMode.Open);
-            //return File(stream, "application/pdf","test.pdf");
-            return new FileStreamResult(stream, "application/pdf");
 
 
-            //return File(pdfPaths.ReadOnlyPath, "application/pdf");
+            ////return File(stream, "application/pdf","test.pdf");
+
+            //return new FileStreamResult(stream, "application/pdf");
+
+            //ProcessStartInfo info = new ProcessStartInfo();
+            //info.Verb = "Open";
+            //info.FileName = @"C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe";
+            ////info.FileName = @"C:\Program Files (x86)\Adobe\Reader 11.0\Reader\AcroRd32.exe";
+            ////info.Arguments = String.Format(@"/p /h {0}", pdfPaths.DownloadPath);
+            //info.CreateNoWindow = false;
+            //info.WindowStyle = ProcessWindowStyle.Hidden;
+            //info.UseShellExecute = true;
+
+            //info.Arguments = String.Format(pdfPaths.DownloadPath);
+            //Process p = Process.Start(info);
+            pdfPaths.DownloadPath = @"D:\test.pdf";
+
+            return RedirectToAction("Index", "PdfViewer", pdfPaths);
+            //return new FileStreamResult(stream, "application/pdf");
+
+
+        }
+        private SecureString ConvertToSecureString(string pw)
+        {
+            var password = new SecureString();
+            foreach(char c in pw.ToCharArray())
+            {
+                password.AppendChar(c);
+            }
+            return password;
         }
 
         public IActionResult Print(string docPath)
         {
             try
             {
-                ProcessStartInfo info = new ProcessStartInfo();
-                info.Verb = "";
-                info.FileName = docPath;
-                info.CreateNoWindow = false;
-                info.WindowStyle = ProcessWindowStyle.Hidden;
-                info.UseShellExecute = true;
-                Process p = new Process();
-                p.StartInfo = info;
-                p.Start();
+                //ProcessStartInfo info = new ProcessStartInfo();
+                //info.Verb = "print";
+                //info.FileName = @"C:\Program Files (x86)\Adobe\Reader 11.0\Reader\AcroRd32.exe";
+                //info.CreateNoWindow = false;
+                //info.WindowStyle = ProcessWindowStyle.Hidden;
+                //info.UseShellExecute = false;
+                //info.Arguments = String.Format(@"/p /h {0}", docPath);
 
-                p.WaitForInputIdle();
-                System.Threading.Thread.Sleep(3000);
+                //Process p = Process.Start(info);
+                ////p.StartInfo = info;
+                ////p.Start(info);
 
-                if (!p.CloseMainWindow())
-                    p.Kill();
+                ////p.WaitForInputIdle();
+                //if (p.HasExited == false)
+                //{
+                //    p.WaitForExit(10000);
+                //}
+                //p.EnableRaisingEvents = true;
+
+                //p.Close();
+                //KillAdobe("AcroRd32");
+
+
 
                 return Redirect(Request.Headers["Referer"].ToString());
             }
@@ -456,7 +496,18 @@ namespace SSIDocumentControl.Controllers
                 return RedirectToAction("ProgramError", "Common");
             }
         }
-        public IActionResult Download(string docPath, bool? ieDownload)
+        private static bool KillAdobe(string name)
+        {
+            foreach (Process clsProcess in Process.GetProcesses().Where(
+                         clsProcess => clsProcess.ProcessName.StartsWith(name)))
+            {
+                clsProcess.Kill();
+                return true;
+            }
+            return false;
+        }
+    
+    public IActionResult Download(string docPath, bool? ieDownload)
         {
             string filename = Path.GetFileName(docPath);
             string filepath = docPath;

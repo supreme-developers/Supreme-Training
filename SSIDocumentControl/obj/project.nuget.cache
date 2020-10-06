@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RmeaN9NGZIFFmyIJ9cpnevCkeqy5dH/ve4yWvqCln8G0nyocoGbyuQ9dkmSoGoZ2r1rkcYZedR1iu6TYCPoJ2g==",
+  "dgSpecHash": "063LPy4AAYz+LZVrsyWcOljkNz3NNX1jd73ty+NvZgEheI/C5oy2TiD2Tok7qMqj2OyOLCoo/zlaluSdiqhvFA==",
   "success": true,
   "projectFilePath": "D:\\Development\\SourceCode\\Supreme\\SSIDocumentControl\\SSIDocumentControl\\SSIDocumentControl.csproj",
   "expectedPackageFiles": [
@@ -254,11 +254,11 @@
     "C:\\Users\\egautreaux\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3.v110_xp\\1.1.11\\sqlitepclraw.lib.e_sqlite3.v110_xp.1.1.11.nupkg.sha512",
     "C:\\Users\\egautreaux\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3.netstandard11\\1.1.11\\sqlitepclraw.provider.e_sqlite3.netstandard11.1.1.11.nupkg.sha512",
     "C:\\Users\\egautreaux\\.nuget\\packages\\stackexchange.redis.strongname\\1.2.6\\stackexchange.redis.strongname.1.2.6.nupkg.sha512",
-    "C:\\Users\\egautreaux\\.nuget\\packages\\syncfusion.compression.net.core\\16.4.0.42\\syncfusion.compression.net.core.16.4.0.42.nupkg.sha512",
-    "C:\\Users\\egautreaux\\.nuget\\packages\\syncfusion.ej2.aspnet.core\\16.4.0.42\\syncfusion.ej2.aspnet.core.16.4.0.42.nupkg.sha512",
+    "C:\\Users\\egautreaux\\.nuget\\packages\\syncfusion.compression.net.core\\17.2.0.51\\syncfusion.compression.net.core.17.2.0.51.nupkg.sha512",
+    "C:\\Users\\egautreaux\\.nuget\\packages\\syncfusion.ej2.aspnet.core\\17.2.0.51\\syncfusion.ej2.aspnet.core.17.2.0.51.nupkg.sha512",
     "C:\\Users\\egautreaux\\.nuget\\packages\\syncfusion.ej2.pdfviewer.aspnet.core.windows\\16.4.0.42\\syncfusion.ej2.pdfviewer.aspnet.core.windows.16.4.0.42.nupkg.sha512",
-    "C:\\Users\\egautreaux\\.nuget\\packages\\syncfusion.licensing\\16.4.0.42\\syncfusion.licensing.16.4.0.42.nupkg.sha512",
-    "C:\\Users\\egautreaux\\.nuget\\packages\\syncfusion.pdf.net.core\\16.4.0.42\\syncfusion.pdf.net.core.16.4.0.42.nupkg.sha512",
+    "C:\\Users\\egautreaux\\.nuget\\packages\\syncfusion.licensing\\17.2.0.51\\syncfusion.licensing.17.2.0.51.nupkg.sha512",
+    "C:\\Users\\egautreaux\\.nuget\\packages\\syncfusion.pdf.net.core\\17.2.0.51\\syncfusion.pdf.net.core.17.2.0.51.nupkg.sha512",
     "C:\\Users\\egautreaux\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\egautreaux\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\egautreaux\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

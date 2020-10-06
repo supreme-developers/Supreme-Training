@@ -31,9 +31,9 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0",
           "SSIDocumentControl.Data": "1.0.0",
           "SSIDocumentControl.Repositories": "1.0.0",
-          "Syncfusion.EJ2.AspNet.Core": "16.4.0.42",
+          "Syncfusion.EJ2.AspNet.Core": "17.2.0.51",
           "Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows": "16.4.0.42",
-          "Syncfusion.Pdf.Net.Core": "16.4.0.42",
+          "Syncfusion.Pdf.Net.Core": "17.2.0.51",
           "EPPlus.Core": "1.5.4",
           "UAParser": "3.1.36"
         },
@@ -368,29 +368,29 @@
           "lib/netstandard1.0/Remotion.Linq.dll": {}
         }
       },
-      "Syncfusion.Compression.Net.Core/16.4.0.42": {
+      "Syncfusion.Compression.Net.Core/17.2.0.51": {
         "dependencies": {
           "NETStandard.Library": "2.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Syncfusion.Compression.Portable.dll": {
-            "assemblyVersion": "16.4200.0.42",
-            "fileVersion": "16.4200.0.42"
+            "assemblyVersion": "17.2200.0.51",
+            "fileVersion": "17.2200.0.51"
           }
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.EJ2.AspNet.Core/16.4.0.42": {
+      "Syncfusion.EJ2.AspNet.Core/17.2.0.51": {
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
-          "Syncfusion.Licensing": "16.4.0.42"
+          "Syncfusion.Licensing": "17.2.0.51"
         },
         "runtime": {
           "lib/netstandard2.0/Syncfusion.EJ2.dll": {
-            "assemblyVersion": "16.4.0.42",
-            "fileVersion": "16.4.0.42"
+            "assemblyVersion": "17.2.0.51",
+            "fileVersion": "17.2.0.51"
           }
         },
         "compile": {
@@ -414,28 +414,28 @@
           "lib/netstandard2.0/Syncfusion.EJ2.PdfViewer.dll": {}
         }
       },
-      "Syncfusion.Licensing/16.4.0.42": {
+      "Syncfusion.Licensing/17.2.0.51": {
         "runtime": {
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {
-            "assemblyVersion": "16.4.0.42",
-            "fileVersion": "16.4.0.42"
+            "assemblyVersion": "17.2.0.51",
+            "fileVersion": "17.2.0.51"
           }
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.Pdf.Net.Core/16.4.0.42": {
+      "Syncfusion.Pdf.Net.Core/17.2.0.51": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "Syncfusion.Compression.Net.Core": "16.4.0.42",
-          "Syncfusion.Licensing": "16.4.0.42",
+          "Syncfusion.Compression.Net.Core": "17.2.0.51",
+          "Syncfusion.Licensing": "17.2.0.51",
           "System.Text.Encoding.CodePages": "4.5.0"
         },
         "runtime": {
           "lib/netstandard2.0/Syncfusion.Pdf.Portable.dll": {
-            "assemblyVersion": "16.4200.0.42",
-            "fileVersion": "16.4200.0.42"
+            "assemblyVersion": "17.2200.0.51",
+            "fileVersion": "17.2200.0.51"
           }
         },
         "compile": {
@@ -4608,19 +4608,19 @@
       "path": "remotion.linq/2.2.0",
       "hashPath": "remotion.linq.2.2.0.nupkg.sha512"
     },
-    "Syncfusion.Compression.Net.Core/16.4.0.42": {
+    "Syncfusion.Compression.Net.Core/17.2.0.51": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-muJbp0yo7Vb2OWgv43tm1lV4YbTNLpvBo9n0sgWG7dh6NnYNhAwkbJsbgnFf4yKGrWiy3FMnx5fD9ceTluVy9Q==",
-      "path": "syncfusion.compression.net.core/16.4.0.42",
-      "hashPath": "syncfusion.compression.net.core.16.4.0.42.nupkg.sha512"
+      "sha512": "sha512-D7tZZbIaJZi3GAIISaTpxUggYoVci+sx8THUHtitW2ktJqfkX1FtDP6S5tWbtuadx/cXuWLpmTwfxhReqq5grw==",
+      "path": "syncfusion.compression.net.core/17.2.0.51",
+      "hashPath": "syncfusion.compression.net.core.17.2.0.51.nupkg.sha512"
     },
-    "Syncfusion.EJ2.AspNet.Core/16.4.0.42": {
+    "Syncfusion.EJ2.AspNet.Core/17.2.0.51": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sJiXeQK5dUP8WLaJ3C2+rV7Dgx2PEFi8+qQrtOEWWKVnrsCw9gEH4hpK6O4aYk9yER8MaToJW1yS+gvqOoC3pQ==",
-      "path": "syncfusion.ej2.aspnet.core/16.4.0.42",
-      "hashPath": "syncfusion.ej2.aspnet.core.16.4.0.42.nupkg.sha512"
+      "sha512": "sha512-T4jiFYKqeJ3YbahdyTParSeWdwCh7dr3yYwG4xG438vuHw7m9D3jBh6IwXbzMywE/iOfDn+T+mOZ7ZQfBOv3IA==",
+      "path": "syncfusion.ej2.aspnet.core/17.2.0.51",
+      "hashPath": "syncfusion.ej2.aspnet.core.17.2.0.51.nupkg.sha512"
     },
     "Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows/16.4.0.42": {
       "type": "package",
@@ -4629,19 +4629,19 @@
       "path": "syncfusion.ej2.pdfviewer.aspnet.core.windows/16.4.0.42",
       "hashPath": "syncfusion.ej2.pdfviewer.aspnet.core.windows.16.4.0.42.nupkg.sha512"
     },
-    "Syncfusion.Licensing/16.4.0.42": {
+    "Syncfusion.Licensing/17.2.0.51": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-x0JR7YiHtbAtutGqDuaxbe4dRQgue7sun1zc8fSYlBJfiaDsdAiaxhOHD+AuADHwAD5PjzWIymf579/s9ui6bw==",
-      "path": "syncfusion.licensing/16.4.0.42",
-      "hashPath": "syncfusion.licensing.16.4.0.42.nupkg.sha512"
+      "sha512": "sha512-luFCV+5Ja6gLwu4s8WelqX02vQtta5+k1znD2zabiRsamjFSwsga2LDe0nbI7hVDCygD58FIdJF6slmwrYktPQ==",
+      "path": "syncfusion.licensing/17.2.0.51",
+      "hashPath": "syncfusion.licensing.17.2.0.51.nupkg.sha512"
     },
-    "Syncfusion.Pdf.Net.Core/16.4.0.42": {
+    "Syncfusion.Pdf.Net.Core/17.2.0.51": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4qJk0+Olh91pW077z9iIVr1mpoHT84wbaZcXcH+/9hHOxlvVwjUW1WSOAgjyvhVOYsNCyHTHaVGmlsMHub2zag==",
-      "path": "syncfusion.pdf.net.core/16.4.0.42",
-      "hashPath": "syncfusion.pdf.net.core.16.4.0.42.nupkg.sha512"
+      "sha512": "sha512-03X7U2LKpOvy3OVsK7J+V//yAnpBUBiysH/Y8HzKj1l4BrNfDOyaPU4TYWZg9Vol6+THtolU2RKp8SSTvlZ3GA==",
+      "path": "syncfusion.pdf.net.core/17.2.0.51",
+      "hashPath": "syncfusion.pdf.net.core.17.2.0.51.nupkg.sha512"
     },
     "System.Collections.Immutable/1.5.0": {
       "type": "package",

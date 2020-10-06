@@ -11,7 +11,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <Compile Include="DocumentAuthorization\AuthorizationRepository.cs" />
     <Compile Include="DocumentAuthorization\IAuthorizationRepository.cs" />
     <Compile Include="Documents\DocControlRepository.cs" />
@@ -22,7 +22,7 @@
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="Users\IUserRepository.cs" />
     <Compile Include="Users\UserRepository.cs" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />

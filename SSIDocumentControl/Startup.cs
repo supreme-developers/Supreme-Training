@@ -87,7 +87,10 @@ namespace SSIDocumentControl
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjIzNzBAMzEzNjJlMzQyZTMwUlA3bDVBb0xjZnQ2cXlreHpvR1lHNjhGQ3RLMys5Y3AvZ21sODBNcEcvVT0");
+            //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjIzNzBAMzEzNjJlMzQyZTMwUlA3bDVBb0xjZnQ2cXlreHpvR1lHNjhGQ3RLMys5Y3AvZ21sODBNcEcvVT0");
+            //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzAyMDU0QDMxMzYyZTM0MmUzMGxIRUcwWFE2TmlMVG11amxuT2FiQ0ZSbDNjM1VGZzd1dlREZk04K1NIUkk9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzAyNDgwQDMxMzcyZTMyMmUzMEZrNEpiVldNTWRZMXRrR1VjSTh6U2QyMFlBWW05KytCWmxFbCsxcG1SdFE9");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -13,9 +13,9 @@
     <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
   </PropertyGroup>
 
-  <ItemGroup>
+   <!--  <ItemGroup>
 
-    <Compile Remove="wwwroot\UploadFiles\Eric%27s Folder\**" />
+ <Compile Remove="wwwroot\UploadFiles\Eric%27s Folder\**" />
     <Compile Remove="wwwroot\UploadFiles\Folder 2\**" />
     <Content Remove="wwwroot\UploadFiles\Eric%27s Folder\**" />
     <Content Remove="wwwroot\UploadFiles\Folder 2\**" />
@@ -57,7 +57,7 @@
     <Compile Include="ViewModels\PdfViewerViewModel.cs" />
     <Compile Include="ViewModels\RoleSetupViewModel.cs" />
     <Compile Include="ViewModels\RolesViewModel.cs" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
     <Content Remove="Views\Documents\Create.cshtml" />
@@ -91,9 +91,9 @@
     <PackageReference Include="Microsoft.Azure.KeyVault" Version="2.3.2" />
     <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="2.8.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
-    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="16.4.0.42" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="17.2.0.51" />
     <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="16.4.0.42" />
-    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="16.4.0.42" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="17.2.0.51" />
     <PackageReference Include="uaparser" Version="3.1.36" />
   </ItemGroup>
 
