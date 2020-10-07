@@ -1,0 +1,1105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{60834422-0176-46C2-B902-EE7A127C6B1B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SSIWebTraining</RootNamespace>
+    <AssemblyName>SSIWebTraining</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.Calculate.Base, Version=14.3450.0.49, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.EJ, Version=14.3450.0.49, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.EJ.Web, Version=14.3450.0.49, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Linq.Base, Version=14.3450.0.49, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.Design, Version=2013.1.220.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2013.1.220.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2013.1.220.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminTools\AddAssessor.html" />
+    <Content Include="AdminTools\css\MngCompetencies.css" />
+    <Content Include="AdminTools\DefineCA.aspx" />
+    <Content Include="AdminTools\EditCA.aspx" />
+    <Content Include="AdminTools\img\c1.jpg" />
+    <Content Include="AdminTools\img\c2.jpg" />
+    <Content Include="AdminTools\img\c3.jpg" />
+    <Content Include="AdminTools\img\ClearLogo.png" />
+    <Content Include="AdminTools\img\Dollarphotoclub_62462697.jpg" />
+    <Content Include="AdminTools\img\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="AdminTools\img\greenCheck.png" />
+    <Content Include="AdminTools\img\logo.png" />
+    <Content Include="AdminTools\img\OffshoreRig.jpg" />
+    <Content Include="AdminTools\img\p1.jpg" />
+    <Content Include="AdminTools\img\p2.jpg" />
+    <Content Include="AdminTools\img\p3.jpg" />
+    <Content Include="AdminTools\img\page-loader.gif" />
+    <Content Include="AdminTools\img\SSI-Comp.png" />
+    <Content Include="AdminTools\img\SSI_Logo_highres_enhanced.png" />
+    <Content Include="AdminTools\img\SSI_Logo_highres_plain.png" />
+    <Content Include="AdminTools\img\SSI_Training.png" />
+    <Content Include="AdminTools\img\thumbs-up.jpg" />
+    <Content Include="AdminTools\CompQA.aspx" />
+    <Content Include="AdminTools\ManageAssessors.aspx" />
+    <Content Include="AdminTools\ManageCompetencies.aspx" />
+    <Content Include="AdminTools\SnapShots.aspx" />
+    <Content Include="angular-data-table-master\config.js" />
+    <Content Include="angular-data-table-master\demos\action-links.html" />
+    <Content Include="angular-data-table-master\demos\basic.html" />
+    <Content Include="angular-data-table-master\demos\cell-templates.html" />
+    <Content Include="angular-data-table-master\demos\checkboxes.html" />
+    <Content Include="angular-data-table-master\demos\columnadd.html" />
+    <Content Include="angular-data-table-master\demos\empty.html" />
+    <Content Include="angular-data-table-master\demos\expressive.html" />
+    <Content Include="angular-data-table-master\demos\filters.html" />
+    <Content Include="angular-data-table-master\demos\force.html" />
+    <Content Include="angular-data-table-master\demos\greed.html" />
+    <Content Include="angular-data-table-master\demos\grouping.html" />
+    <Content Include="angular-data-table-master\demos\inline-editing.html" />
+    <Content Include="angular-data-table-master\demos\multi-select.html" />
+    <Content Include="angular-data-table-master\demos\paging.html" />
+    <Content Include="angular-data-table-master\demos\perf-horzscroll.html" />
+    <Content Include="angular-data-table-master\demos\perf.html" />
+    <Content Include="angular-data-table-master\demos\pins.html" />
+    <Content Include="angular-data-table-master\demos\scroll.html" />
+    <Content Include="angular-data-table-master\demos\single-select.html" />
+    <Content Include="angular-data-table-master\demos\slow.html" />
+    <Content Include="angular-data-table-master\demos\sort.html" />
+    <Content Include="angular-data-table-master\demos\tabs.html" />
+    <Content Include="angular-data-table-master\demos\tall.html" />
+    <Content Include="angular-data-table-master\demos\templates.html" />
+    <Content Include="angular-data-table-master\demos\tooltip.html" />
+    <Content Include="angular-data-table-master\demos\transclude.html" />
+    <Content Include="angular-data-table-master\demos\tree.html" />
+    <Content Include="angular-data-table-master\demos\updating.html" />
+    <Content Include="angular-data-table-master\demos\virtual-paging.html" />
+    <Content Include="angular-data-table-master\demos\virtual.html" />
+    <Content Include="angular-data-table-master\gulpfile.js" />
+    <Content Include="angular-data-table-master\index.html" />
+    <Content Include="angular-data-table-master\karma.conf.js" />
+    <Content Include="angular-data-table-master\release\dataTable.cjs.js" />
+    <Content Include="angular-data-table-master\release\dataTable.css" />
+    <Content Include="angular-data-table-master\release\dataTable.es6.js" />
+    <Content Include="angular-data-table-master\release\dataTable.js" />
+    <Content Include="angular-data-table-master\release\dataTable.min.js" />
+    <Content Include="angular-data-table-master\release\material.css" />
+    <Content Include="angular-data-table-master\src\components\body\BodyController.js" />
+    <Content Include="angular-data-table-master\src\components\body\BodyDirective.js" />
+    <Content Include="angular-data-table-master\src\components\body\CellController.js" />
+    <Content Include="angular-data-table-master\src\components\body\CellDirective.js" />
+    <Content Include="angular-data-table-master\src\components\body\GroupRowController.js" />
+    <Content Include="angular-data-table-master\src\components\body\GroupRowDirective.js" />
+    <Content Include="angular-data-table-master\src\components\body\RowController.js" />
+    <Content Include="angular-data-table-master\src\components\body\RowDirective.js" />
+    <Content Include="angular-data-table-master\src\components\body\ScrollerDirective.js" />
+    <Content Include="angular-data-table-master\src\components\body\SelectionController.js" />
+    <Content Include="angular-data-table-master\src\components\body\SelectionDirective.js" />
+    <Content Include="angular-data-table-master\src\components\body\StyleTranslator.js" />
+    <Content Include="angular-data-table-master\src\components\DataTableController.js" />
+    <Content Include="angular-data-table-master\src\components\DataTableDirective.js" />
+    <Content Include="angular-data-table-master\src\components\DataTableService.js" />
+    <Content Include="angular-data-table-master\src\components\DataTableService.spec.js" />
+    <Content Include="angular-data-table-master\src\components\footer\FooterController.js" />
+    <Content Include="angular-data-table-master\src\components\footer\FooterDirective.js" />
+    <Content Include="angular-data-table-master\src\components\footer\PagerController.js" />
+    <Content Include="angular-data-table-master\src\components\footer\PagerDirective.js" />
+    <Content Include="angular-data-table-master\src\components\header\HeaderCellController.js" />
+    <Content Include="angular-data-table-master\src\components\header\HeaderCellDirective.js" />
+    <Content Include="angular-data-table-master\src\components\header\HeaderController.js" />
+    <Content Include="angular-data-table-master\src\components\header\HeaderDirective.js" />
+    <Content Include="angular-data-table-master\src\components\header\ResizableDirective.js" />
+    <Content Include="angular-data-table-master\src\components\header\SortableDirective.js" />
+    <Content Include="angular-data-table-master\src\components\menu\context\contextMenu.js" />
+    <Content Include="angular-data-table-master\src\components\menu\context\ContextMenuController.js" />
+    <Content Include="angular-data-table-master\src\components\menu\context\ContextMenuDirective.js" />
+    <Content Include="angular-data-table-master\src\components\menu\dropdown\dropdown.js" />
+    <Content Include="angular-data-table-master\src\components\menu\dropdown\DropdownController.js" />
+    <Content Include="angular-data-table-master\src\components\menu\dropdown\DropdownDirective.js" />
+    <Content Include="angular-data-table-master\src\components\menu\dropdown\DropdownMenuDirective.js" />
+    <Content Include="angular-data-table-master\src\components\menu\dropdown\DropdownToggleDirective.js" />
+    <Content Include="angular-data-table-master\src\components\menu\menu.js" />
+    <Content Include="angular-data-table-master\src\components\menu\MenuController.js" />
+    <Content Include="angular-data-table-master\src\components\menu\MenuDirective.js" />
+    <Content Include="angular-data-table-master\src\components\popover\popover.js" />
+    <Content Include="angular-data-table-master\src\components\popover\PopoverDirective.js" />
+    <Content Include="angular-data-table-master\src\components\popover\PopoverRegistry.js" />
+    <Content Include="angular-data-table-master\src\components\popover\PositionHelper.js" />
+    <Content Include="angular-data-table-master\src\dataTable.js" />
+    <Content Include="angular-data-table-master\src\defaults.js" />
+    <Content Include="angular-data-table-master\src\tests\frameworks.js" />
+    <Content Include="angular-data-table-master\src\utils\keys.js" />
+    <Content Include="angular-data-table-master\src\utils\math.js" />
+    <Content Include="angular-data-table-master\src\utils\polyfill.js" />
+    <Content Include="angular-data-table-master\src\utils\throttle.js" />
+    <Content Include="angular-data-table-master\src\utils\translate.js" />
+    <Content Include="angular-data-table-master\src\utils\utils.js" />
+    <Content Include="angular-data-table-master\src\utils\utils.spec.js" />
+    <Content Include="angular-data-table-master\src\utils\vendorPrefixes.js" />
+    <Content Include="Assessment.aspx" />
+    <Content Include="AssessmentsDue.aspx" />
+    <Content Include="bin\Syncfusion.BulletGraph.Windows.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Syncfusion.Calculate.Base.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Syncfusion.EJ.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Syncfusion.EJ.Web.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Syncfusion.Grid.Grouping.Web.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Syncfusion.Linq.Base.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Calendar.aspx" />
+    <Content Include="calendar.html" />
+    <Content Include="AdminTools\CompGroups.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="AdminTools\CreateCompetency_hold.aspx" />
+    <Content Include="css\3DButtons.css" />
+    <Content Include="css\AdminLTE.css" />
+    <Content Include="css\AdminLTE.min.css" />
+    <Content Include="css\alerts.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\build.css" />
+    <Content Include="css\dashboard.css" />
+    <Content Include="css\fullcalendar.print.css" />
+    <Content Include="css\jquery.rateyo.css" />
+    <Content Include="css\jquery.rateyo.min.css" />
+    <Content Include="css\login.css" />
+    <Content Include="css\nav.css" />
+    <Content Include="css\ngDialog\ngDialog-theme-default.min.css" />
+    <Content Include="css\ngDialog\ngDialog-theme-plain.min.css" />
+    <Content Include="css\ngDialog\ngDialog.min.css" />
+    <Content Include="css\prettyCheckboxes\pretty.min.css" />
+    <Content Include="css\skins\skin-black-light.css" />
+    <Content Include="css\skins\skin-black-light.min.css" />
+    <Content Include="css\skins\skin-black.css" />
+    <Content Include="css\skins\skin-black.min.css" />
+    <Content Include="css\skins\skin-blue-light.css" />
+    <Content Include="css\skins\skin-blue-light.min.css" />
+    <Content Include="css\skins\skin-blue.css" />
+    <Content Include="css\skins\skin-blue.min.css" />
+    <Content Include="css\skins\skin-green-light.css" />
+    <Content Include="css\skins\skin-green-light.min.css" />
+    <Content Include="css\skins\skin-green.css" />
+    <Content Include="css\skins\skin-green.min.css" />
+    <Content Include="css\skins\skin-purple-light.css" />
+    <Content Include="css\skins\skin-purple-light.min.css" />
+    <Content Include="css\skins\skin-purple.css" />
+    <Content Include="css\skins\skin-purple.min.css" />
+    <Content Include="css\skins\skin-red-light.css" />
+    <Content Include="css\skins\skin-red-light.min.css" />
+    <Content Include="css\skins\skin-red.css" />
+    <Content Include="css\skins\skin-red.min.css" />
+    <Content Include="css\skins\skin-yellow-light.css" />
+    <Content Include="css\skins\skin-yellow-light.min.css" />
+    <Content Include="css\skins\skin-yellow.css" />
+    <Content Include="css\skins\skin-yellow.min.css" />
+    <Content Include="css\skins\_all-skins.css" />
+    <Content Include="css\skins\_all-skins.min.css" />
+    <Content Include="css\w3.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="img\AmazonPhishing.png" />
+    <Content Include="img\ClearLogo.png" />
+    <Content Include="img\greenCheck.png" />
+    <Content Include="img\ic_content_copy_black_24dp_2x.png" />
+    <Content Include="img\OffshoreRig.jpg" />
+    <Content Include="img\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Home.aspx" />
+    <Content Include="img\c1.jpg" />
+    <Content Include="img\c2.jpg" />
+    <Content Include="img\c3.jpg" />
+    <Content Include="img\Dollarphotoclub_62462697.jpg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\p1.jpg" />
+    <Content Include="img\p2.jpg" />
+    <Content Include="img\p3.jpg" />
+    <Content Include="img\page-loader.gif" />
+    <Content Include="img\SSI-Comp.png" />
+    <Content Include="img\SSI-CompAssurance.png" />
+    <Content Include="img\SSI_Logo_highres_enhanced.png" />
+    <Content Include="img\SSI_Logo_highres_plain.png" />
+    <Content Include="img\SSI_Training.png" />
+    <Content Include="img\thumbs-up.jpg" />
+    <Content Include="js\CompControllers\AssessmentsDue.js" />
+    <Content Include="js\CompControllers\Snapshot.js" />
+    <Content Include="js\DragDrop\angular-dragdrop.min.js" />
+    <Content Include="js\Angular-Pagination\dirPagination.tpl.html" />
+    <Content Include="js\angular-datatables.js" />
+    <Content Include="js\angular-datatables.min.js" />
+    <Content Include="js\Angular-Pagination\angularPagination.js" />
+    <Content Include="js\app.js" />
+    <Content Include="js\app.min.js" />
+    <Content Include="js\CompControllers\Assessment.js" />
+    <Content Include="js\CompControllers\CompGroups.js" />
+    <Content Include="js\CompControllers\Assessors.js" />
+    <Content Include="js\CompControllers\MngCompetency.js" />
+    <Content Include="js\demo.js" />
+    <Content Include="js\DragDrop\angular-drag-and-drop-lists.min.js" />
+    <Content Include="js\DragDrop\dragDrop.js" />
+    <Content Include="js\DragDrop\DraggableDirective.js" />
+    <Content Include="js\DragDrop\DropTargetDirective.js" />
+    <Content Include="js\DragDrop\multi.js" />
+    <Content Include="js\font-awesome-animation.min.css" />
+    <Content Include="js\igTruncate.min.js" />
+    <Content Include="js\jquery.rateyo.min.js" />
+    <Content Include="js\jquery.scroll_to.js" />
+    <Content Include="js\jquery.snapscroll.js" />
+    <Content Include="js\jquery.snapscroll.min.js" />
+    <Content Include="js\ngDialog.min.js" />
+    <Content Include="js\SearchTable.js" />
+    <Content Include="js\sortable.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Main.aspx" />
+    <Content Include="MainMenu.aspx" />
+    <Content Include="MasterPages\js\masterJS.js" />
+    <Content Include="Objects\Models\SSIRentEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSIRentEntities.edmx</DependentUpon>
+      <LastGenOutput>SSIRentEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Objects\Models\SSIRentEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSIRentEntities.edmx</DependentUpon>
+      <LastGenOutput>SSIRentEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="Objects\Models\SSITraining.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSITraining.edmx</DependentUpon>
+      <LastGenOutput>SSITraining.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Objects\Models\SSITraining.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSITraining.edmx</DependentUpon>
+      <LastGenOutput>SSITraining.cs</LastGenOutput>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MasterPages\BootStrap.Master" />
+    <Content Include="img\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="img\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="img\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="img\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="js\jquery.snapscroll.coffee" />
+    <Content Include="App_Themes\Bootstrap\Button.skin" />
+    <Content Include="App_Themes\Bootstrap\DropDownList.skin" />
+    <Content Include="App_Themes\Bootstrap\HyperLink.skin" />
+    <Content Include="App_Themes\Bootstrap\TextBox.skin" />
+    <Content Include="App_Themes\Bootstrap\Validators.skin" />
+    <Content Include="MasterPages\Training.Master" />
+    <Content Include="PhishingPages\Amazon.html" />
+    <Content Include="plugins\bootstrap-select\bootstrap-select.css" />
+    <Content Include="plugins\bootstrap-select\bootstrap-select.js" />
+    <Content Include="plugins\bootstrap-select\bootstrap-select.min.css" />
+    <Content Include="plugins\bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="plugins\bootstrap-select\ng-bootstrap-select.min.js" />
+    <Content Include="plugins\ckeditor\CHANGES.md" />
+    <Content Include="plugins\ckeditor\LICENSE.md" />
+    <Content Include="plugins\ckeditor\README.md" />
+    <EntityDeploy Include="Objects\Models\SSIRentEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SSIRentEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Objects\Models\SSIRentEntities.edmx.diagram">
+      <DependentUpon>SSIRentEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="js\jquery.rateyo.min.js.map" />
+    <EntityDeploy Include="Objects\Models\SSITraining.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SSITraining.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Objects\Models\SSITraining.edmx.diagram">
+      <DependentUpon>SSITraining.edmx</DependentUpon>
+    </Content>
+    <Content Include="plugins\bootstrap-select\bootstrap-select.css.map" />
+    <Content Include="plugins\bootstrap-select\bootstrap-select.js.map" />
+    <Content Include="AdminTools\img\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="AdminTools\img\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="AdminTools\img\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="AdminTools\img\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="angular-data-table-master\.editorconfig" />
+    <Content Include="angular-data-table-master\.eslintrc" />
+    <Content Include="angular-data-table-master\.gitignore" />
+    <Content Include="angular-data-table-master\.travis.yml" />
+    <Content Include="angular-data-table-master\bower.json" />
+    <Content Include="angular-data-table-master\CONTRIBUTING.md" />
+    <Content Include="angular-data-table-master\demos\data\100.json" />
+    <Content Include="angular-data-table-master\demos\data\columns.json" />
+    <Content Include="angular-data-table-master\demos\data\complex-100000.json" />
+    <Content Include="angular-data-table-master\demos\data\olympics.json" />
+    <Content Include="angular-data-table-master\jsconfig.json" />
+    <Content Include="angular-data-table-master\LICENSE" />
+    <Content Include="angular-data-table-master\package.json" />
+    <Content Include="angular-data-table-master\README.md" />
+    <Content Include="angular-data-table-master\src\components\menu\menu.less" />
+    <Content Include="angular-data-table-master\src\components\popover\popover.less" />
+    <Content Include="angular-data-table-master\src\dataTable.less" />
+    <Content Include="angular-data-table-master\src\themes\material.less" />
+    <Content Include="pretty-checkbox-master\Gulpfile.js" />
+    <Content Include="pretty-checkbox-master\src\pretty.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\decorators\_animation.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\decorators\_circle.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\decorators\_color.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\decorators\_core.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\decorators\_index.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\decorators\_override.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\decorators\_plain.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\decorators\_toggle.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\support\_animations.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\support\_index.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\support\_mixins.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\support\_print.scss" />
+    <Content Include="pretty-checkbox-master\src\scss\support\_variables.scss" />
+    <Content Include="pretty-checkbox-master\.gitignore" />
+    <Content Include="pretty-checkbox-master\bower.json" />
+    <Content Include="pretty-checkbox-master\package.json" />
+    <Content Include="pretty-checkbox-master\README.md" />
+    <Content Include="printThis-master\.gitignore" />
+    <Content Include="printThis-master\bower.json" />
+    <Content Include="printThis-master\composer.json" />
+    <Content Include="printThis-master\package.json" />
+    <Content Include="printThis-master\printThis.jquery.json" />
+    <Content Include="printThis-master\README.md" />
+    <Content Include="MasterPages\MobileMaster.Master" />
+    <None Include="Properties\PublishProfiles\Web.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="pretty-checkbox-master\src\pretty.css" />
+    <Content Include="pretty-checkbox-master\src\pretty.min.css" />
+    <Content Include="printThis-master\changelog.txt" />
+    <Content Include="printThis-master\printThis.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.tooltipster.min.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="sweetAlert\sweetalert-dev.js" />
+    <Content Include="sweetAlert\sweetalert.css" />
+    <Content Include="sweetAlert\sweetalert.min.js" />
+    <Content Include="SyncfusionTest.html" />
+    <Content Include="Test.aspx" />
+    <Content Include="Testing\angular-dragdrop.min.js" />
+    <Content Include="Testing\app.js" />
+    <Content Include="Testing\Testing.aspx" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\reveal.css" />
+    <Content Include="Global.asax" />
+    <Content Include="plugins\bootstrap-slider\bootstrap-slider.js" />
+    <Content Include="plugins\bootstrap-slider\slider.css" />
+    <Content Include="plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
+    <Content Include="plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.min.js" />
+    <Content Include="plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
+    <Content Include="plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.min.css" />
+    <Content Include="plugins\chartjs\Chart.js" />
+    <Content Include="plugins\chartjs\Chart.min.js" />
+    <Content Include="plugins\ckeditor\build-config.js" />
+    <Content Include="plugins\ckeditor\ckeditor.js" />
+    <Content Include="plugins\ckeditor\config.js" />
+    <Content Include="plugins\ckeditor\contents.css" />
+    <Content Include="plugins\ckeditor\styles.js" />
+    <Content Include="plugins\colorpicker\bootstrap-colorpicker.css" />
+    <Content Include="plugins\colorpicker\bootstrap-colorpicker.js" />
+    <Content Include="plugins\colorpicker\bootstrap-colorpicker.min.css" />
+    <Content Include="plugins\colorpicker\bootstrap-colorpicker.min.js" />
+    <Content Include="plugins\datatables\dataTables.bootstrap.css" />
+    <Content Include="plugins\datatables\dataTables.bootstrap.js" />
+    <Content Include="plugins\datatables\dataTables.bootstrap.min.js" />
+    <Content Include="plugins\datatables\jquery.dataTables.css" />
+    <Content Include="plugins\datatables\jquery.dataTables.js" />
+    <Content Include="plugins\datatables\jquery.dataTables.min.css" />
+    <Content Include="plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="plugins\datatables\jquery.dataTables_themeroller.css" />
+    <Content Include="plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="plugins\datepicker\datepicker3.css" />
+    <Content Include="plugins\daterangepicker\daterangepicker.css" />
+    <Content Include="plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="plugins\daterangepicker\moment.js" />
+    <Content Include="plugins\daterangepicker\moment.min.js" />
+    <Content Include="plugins\fastclick\fastclick.js" />
+    <Content Include="plugins\fastclick\fastclick.min.js" />
+    <Content Include="plugins\flot\excanvas.js" />
+    <Content Include="plugins\flot\excanvas.min.js" />
+    <Content Include="plugins\flot\jquery.colorhelpers.js" />
+    <Content Include="plugins\flot\jquery.colorhelpers.min.js" />
+    <Content Include="plugins\flot\jquery.flot.canvas.js" />
+    <Content Include="plugins\flot\jquery.flot.canvas.min.js" />
+    <Content Include="plugins\flot\jquery.flot.categories.js" />
+    <Content Include="plugins\flot\jquery.flot.categories.min.js" />
+    <Content Include="plugins\flot\jquery.flot.crosshair.js" />
+    <Content Include="plugins\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="plugins\flot\jquery.flot.errorbars.js" />
+    <Content Include="plugins\flot\jquery.flot.errorbars.min.js" />
+    <Content Include="plugins\flot\jquery.flot.fillbetween.js" />
+    <Content Include="plugins\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="plugins\flot\jquery.flot.image.js" />
+    <Content Include="plugins\flot\jquery.flot.image.min.js" />
+    <Content Include="plugins\flot\jquery.flot.js" />
+    <Content Include="plugins\flot\jquery.flot.min.js" />
+    <Content Include="plugins\flot\jquery.flot.navigate.js" />
+    <Content Include="plugins\flot\jquery.flot.navigate.min.js" />
+    <Content Include="plugins\flot\jquery.flot.pie.js" />
+    <Content Include="plugins\flot\jquery.flot.pie.min.js" />
+    <Content Include="plugins\flot\jquery.flot.resize.js" />
+    <Content Include="plugins\flot\jquery.flot.resize.min.js" />
+    <Content Include="plugins\flot\jquery.flot.selection.js" />
+    <Content Include="plugins\flot\jquery.flot.selection.min.js" />
+    <Content Include="plugins\flot\jquery.flot.stack.js" />
+    <Content Include="plugins\flot\jquery.flot.stack.min.js" />
+    <Content Include="plugins\flot\jquery.flot.symbol.js" />
+    <Content Include="plugins\flot\jquery.flot.symbol.min.js" />
+    <Content Include="plugins\flot\jquery.flot.threshold.js" />
+    <Content Include="plugins\flot\jquery.flot.threshold.min.js" />
+    <Content Include="plugins\flot\jquery.flot.time.js" />
+    <Content Include="plugins\flot\jquery.flot.time.min.js" />
+    <Content Include="css\fullcalendar.css" />
+    <Content Include="plugins\fullcalendar\fullcalendar.css" />
+    <Content Include="plugins\fullcalendar\fullcalendar.js" />
+    <Content Include="plugins\fullcalendar\fullcalendar.min.css" />
+    <Content Include="plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="plugins\fullcalendar\fullcalendar.print.css" />
+    <Content Include="plugins\iCheck\all.css" />
+    <Content Include="plugins\iCheck\icheck.js" />
+    <Content Include="plugins\iCheck\icheck.min.js" />
+    <Content Include="plugins\input-mask\jquery.inputmask.date.extensions.js" />
+    <Content Include="plugins\input-mask\jquery.inputmask.extensions.js" />
+    <Content Include="plugins\input-mask\jquery.inputmask.js" />
+    <Content Include="plugins\input-mask\jquery.inputmask.numeric.extensions.js" />
+    <Content Include="plugins\input-mask\jquery.inputmask.phone.extensions.js" />
+    <Content Include="plugins\input-mask\jquery.inputmask.regex.extensions.js" />
+    <Content Include="plugins\ionslider\ion.rangeSlider.css" />
+    <Content Include="plugins\ionslider\ion.rangeSlider.min.js" />
+    <Content Include="plugins\ionslider\ion.rangeSlider.skinFlat.css" />
+    <Content Include="plugins\ionslider\ion.rangeSlider.skinNice.css" />
+    <Content Include="plugins\jQueryUI\jquery-ui.js" />
+    <Content Include="plugins\jQueryUI\jquery-ui.min.js" />
+    <Content Include="plugins\jQuery\jquery-2.2.3.min.js" />
+    <Content Include="plugins\jvectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="plugins\jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="plugins\jvectormap\jquery-jvectormap-usa-en.js" />
+    <Content Include="plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="plugins\knob\jquery.knob.js" />
+    <Content Include="plugins\morris\morris.css" />
+    <Content Include="plugins\morris\morris.js" />
+    <Content Include="plugins\morris\morris.min.js" />
+    <Content Include="plugins\pace\pace.css" />
+    <Content Include="plugins\pace\pace.js" />
+    <Content Include="plugins\pace\pace.min.css" />
+    <Content Include="plugins\pace\pace.min.js" />
+    <Content Include="plugins\select2\select2.css" />
+    <Content Include="plugins\select2\select2.full.js" />
+    <Content Include="plugins\select2\select2.full.min.js" />
+    <Content Include="plugins\select2\select2.js" />
+    <Content Include="plugins\select2\select2.min.css" />
+    <Content Include="plugins\select2\select2.min.js" />
+    <Content Include="plugins\slimScroll\jquery.slimscroll.js" />
+    <Content Include="plugins\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="plugins\sparkline\jquery.sparkline.js" />
+    <Content Include="plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="plugins\timepicker\bootstrap-timepicker.css" />
+    <Content Include="plugins\timepicker\bootstrap-timepicker.js" />
+    <Content Include="plugins\timepicker\bootstrap-timepicker.min.css" />
+    <Content Include="plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminTools\DefineCA.aspx.cs">
+      <DependentUpon>DefineCA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTools\DefineCA.aspx.designer.cs">
+      <DependentUpon>DefineCA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTools\CompQA.aspx.cs">
+      <DependentUpon>CompQA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTools\CompQA.aspx.designer.cs">
+      <DependentUpon>CompQA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTools\EditCA.aspx.cs">
+      <DependentUpon>EditCA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTools\EditCA.aspx.designer.cs">
+      <DependentUpon>EditCA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTools\ManageAssessors.aspx.cs">
+      <DependentUpon>ManageAssessors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTools\ManageAssessors.aspx.designer.cs">
+      <DependentUpon>ManageAssessors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTools\ManageCompetencies.aspx.cs">
+      <DependentUpon>ManageCompetencies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTools\ManageCompetencies.aspx.designer.cs">
+      <DependentUpon>ManageCompetencies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTools\SnapShots.aspx.cs">
+      <DependentUpon>SnapShots.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTools\SnapShots.aspx.designer.cs">
+      <DependentUpon>SnapShots.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Assessment.aspx.cs">
+      <DependentUpon>Assessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assessment.aspx.designer.cs">
+      <DependentUpon>Assessment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssessmentsDue.aspx.cs">
+      <DependentUpon>AssessmentsDue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssessmentsDue.aspx.designer.cs">
+      <DependentUpon>AssessmentsDue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTools\CompGroups.aspx.cs">
+      <DependentUpon>CompGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTools\CompGroups.aspx.designer.cs">
+      <DependentUpon>CompGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AssessmentController.cs" />
+    <Compile Include="Controllers\AssessorController.cs" />
+    <Compile Include="Controllers\CompetencyController.cs" />
+    <Compile Include="Controllers\EmployeeSnapshotController.cs" />
+    <Compile Include="Controllers\GlobalController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
+    <Compile Include="AdminTools\CreateCompetency_hold.aspx.cs">
+      <DependentUpon>CreateCompetency_hold.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTools\CreateCompetency_hold.aspx.designer.cs">
+      <DependentUpon>CreateCompetency_hold.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.aspx.cs">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainMenu.aspx.designer.cs">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\BootStrap.Master.cs">
+      <DependentUpon>BootStrap.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\BootStrap.Master.designer.cs">
+      <DependentUpon>BootStrap.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\MobileMaster.Master.cs">
+      <DependentUpon>MobileMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\MobileMaster.Master.designer.cs">
+      <DependentUpon>MobileMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\Competency.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\CompetencyDefHeader.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\CompetencyGroup.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\CompetencyJobRole.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\CompetencyJobTitle.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\CompetencyResponsibility.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\CompetencyTask.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\CompetencyType.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\Employee.cs">
+      <DependentUpon>SSIRentEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\EmployeeAssessmentDetail.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\EmployeeAssessmentHeader.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\EmployeeJobRole.cs">
+      <DependentUpon>SSIRentEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\EmployeeJobTitle.cs">
+      <DependentUpon>SSIRentEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\EmployeeQualification.cs">
+      <DependentUpon>SSIRentEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\MobileUser.cs" />
+    <Compile Include="Objects\Models\PartialCompetency.cs" />
+    <Compile Include="Objects\Models\SchedulingRecurrenceUOM.cs">
+      <DependentUpon>SSIRentEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_EmployeeIsAdmin_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_FinalizeCompetency_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetActiveEmployees_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetAllAssessors_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetAllEmployeeCompetencies_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetAllEmployeeCompetencies_Result1.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetAssessors_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetAssessor_Assessments_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetCompetencyDefinitions_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetCompetencyHeaderDetails_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetEmployeeAssessment_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetEmployeeCompetencies_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetManagerCompetency_Access_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetManagerEmployees_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetManagerJobQualification_Access_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetManagerJobRoles_Access_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetManagerJobTitle_Access_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetSnapshotEmployees_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_CACompetency_GetUnAssigned_CompetencyDefinitions_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\sp_sys_GetMobileLogin_Result.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\SSIRentEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSIRentEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\SSIRentEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSIRentEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\SSIRentEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSIRentEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\SSITraining.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSITraining.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\SSITraining.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\SSITraining.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSITraining.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\tblCACompetency_ManagerAccess.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\tblCACompetency_Status.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\TrainingTypes.cs">
+      <DependentUpon>SSITraining.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Models\User.cs">
+      <DependentUpon>SSIRentEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MasterPages\Training.Master.cs">
+      <DependentUpon>Training.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Training.Master.designer.cs">
+      <DependentUpon>Training.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\Testing.aspx.cs">
+      <DependentUpon>Testing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Testing\Testing.aspx.designer.cs">
+      <DependentUpon>Testing.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="angular-datatables-master\" />
+    <Folder Include="angular-drag-and-drop-lists-master\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\App_Data\" />
+    <Folder Include="ngDialog-master\" />
+    <Folder Include="plugins\bootstrap-combobox-master\" />
+    <Folder Include="plugins\ckeditor\adapters\" />
+    <Folder Include="plugins\ckeditor\lang\" />
+    <Folder Include="plugins\ckeditor\plugins\" />
+    <Folder Include="plugins\ckeditor\samples\" />
+    <Folder Include="plugins\ckeditor\skins\" />
+    <Folder Include="plugins\colorpicker\img\" />
+    <Folder Include="plugins\datatables\extensions\" />
+    <Folder Include="plugins\datatables\images\" />
+    <Folder Include="plugins\datepicker\locales\" />
+    <Folder Include="plugins\iCheck\flat\" />
+    <Folder Include="plugins\iCheck\futurico\" />
+    <Folder Include="plugins\iCheck\line\" />
+    <Folder Include="plugins\iCheck\minimal\" />
+    <Folder Include="plugins\iCheck\polaris\" />
+    <Folder Include="plugins\iCheck\square\" />
+    <Folder Include="plugins\input-mask\phone-codes\" />
+    <Folder Include="plugins\ionslider\img\" />
+    <Folder Include="plugins\select2\i18n\" />
+    <Folder Include="Views\Assessment\" />
+    <Folder Include="Views\Assessor\" />
+    <Folder Include="Views\Competency\" />
+    <Folder Include="Views\EmployeeSnapshot\" />
+    <Folder Include="Views\Global\" />
+    <Folder Include="Views\Group\" />
+    <Folder Include="WebServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56762</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56762/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:56762/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

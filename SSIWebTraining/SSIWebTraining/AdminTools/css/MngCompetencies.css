@@ -1,0 +1,164 @@
+﻿.box {
+    background: #fff;
+    transition: all 0.2s ease;
+    
+    border: 2px dashed #dadada;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-clip: padding-box;
+    padding: 0px 60px 20px 60px;
+    height: auto;
+    position: relative;
+}
+
+    .box:hover {
+        border: 2px solid #525C7A;
+    }
+
+    .box span.box-title {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    .box .box-content {
+        padding: 16px;
+        border-radius: 0 0 2px 2px;
+        background-clip: padding-box;
+        box-sizing: border-box;
+        min-height: 100%;
+        
+        /*position:relative;*/
+    }
+
+        .box .box-content p {
+            color: #515c66;
+            text-transform: none;
+        }
+
+        .box .box-content button {
+            position: absolute;
+            bottom: 10px;
+            width: 80%;
+            left: 10%;
+        }
+
+.addComp {
+    margin-bottom: 20px;
+}
+
+.circle {
+    /*float:left;
+        position:relative;*/
+    padding: 5px 10px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    -moz-box-shadow: 0px 0px 2px #888;
+    -webkit-box-shadow: 0px 0px 2px #888;
+    box-shadow: 0px 0px 2px #888;
+}
+
+div.bhoechie-tab-container {
+    z-index: 10;
+    background-color: #ffffff;
+    padding: 0 !important;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    margin-left: 50px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
+    opacity: 0.97;
+    filter: alpha(opacity=97);
+}
+
+div.bhoechie-tab-menu {
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+}
+
+    div.bhoechie-tab-menu div.list-group {
+        margin-bottom: 0;
+    }
+
+        div.bhoechie-tab-menu div.list-group > a {
+            margin-bottom: 0;
+        }
+
+            div.bhoechie-tab-menu div.list-group > a .glyphicon,
+            div.bhoechie-tab-menu div.list-group > a .fa {
+                color: #5A55A3;
+            }
+
+            div.bhoechie-tab-menu div.list-group > a:first-child {
+                border-top-right-radius: 0;
+                -moz-border-top-right-radius: 0;
+            }
+
+            div.bhoechie-tab-menu div.list-group > a:last-child {
+                border-bottom-right-radius: 0;
+                -moz-border-bottom-right-radius: 0;
+            }
+            /*div.bhoechie-tab-menu div.list-group>a.active,
+div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+div.bhoechie-tab-menu div.list-group>a.active .fa{
+background-color: #5A55A3;
+  background-image: #5A55A3;
+  color: #ffffff;
+}*/
+            div.bhoechie-tab-menu div.list-group > a.active:after {
+                content: '';
+                position: absolute;
+                left: 100%;
+                top: 50%;
+                margin-top: -13px;
+                border-left: 0;
+                border-bottom: 13px solid transparent;
+                border-top: 13px solid transparent;
+                border-left: 10px solid #337AB7;
+            }
+
+div.bhoechie-tab-content {
+    background-color: #ffffff;
+    /* border: 1px solid #eeeeee; */
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
+    display: none;
+}
+
+.typelevelrow {
+    padding-bottom: 5px;
+}
+
+.bgimage {
+    position: relative;
+}
+
+    .bgimage:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 5%;
+        left: 30%;
+        background-image: url('../img/greenCheck.png') !important;
+        background-repeat: no-repeat !important;
+        background-size: 50% auto;
+        width: 100%;
+        height: 100%;
+        opacity: .6;
+        z-index: 2;
+    }
+
+.box-content {
+    opacity: 1;
+}

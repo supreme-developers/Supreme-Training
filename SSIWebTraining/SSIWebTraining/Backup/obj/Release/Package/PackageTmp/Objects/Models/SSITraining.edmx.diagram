@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0c9e88e5e49849f3bdc390a975b0556c" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="SSITrainingModel.Competency" Width="1.75" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSITrainingModel.CompetencyDefHeader" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSITrainingModel.CompetencyGroup" Width="1.75" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSITrainingModel.tblCACompetency_Status" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSITrainingModel.CompetencyType" Width="2.25" PointX="0.5" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="SSITrainingModel.FK_tblCACompetency_tblCACompetency" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SSITrainingModel.CompetencyTask" Width="1.5" PointX="3.375" PointY="5.75" />
+        <EntityTypeShape EntityType="SSITrainingModel.tblCACompetency_AssessmentDetails" Width="1.5" PointX="9.625" PointY="4.875" />
+        <EntityTypeShape EntityType="SSITrainingModel.tblCACompetency_AssessmentHeader" Width="1.5" PointX="7.375" PointY="4.125" />
+        <EntityTypeShape EntityType="SSITrainingModel.tblCACompetency_ManagerAccess" Width="1.5" PointX="0.75" PointY="7.75" />
+        <AssociationConnector Association="SSITrainingModel.FK_tblCACompetency_AssessmentDetails_tblCACompetency_AssessmentHeader" />
+        <AssociationConnector Association="SSITrainingModel.FK_tblCACompetency_AssessmentDetails_tblCACompetency_DefinitionTasks" />
+        <AssociationConnector Association="SSITrainingModel.FK_tblCACompetency_AssessmentHeader_tblCACompetency_DefinitionHeader" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

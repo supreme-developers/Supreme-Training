@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SSIRentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblHREmployeeJobRoles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobRole" Type="varchar" MaxLength="500" />
+          <Property Name="Special_Instructions" Type="varchar(max)" />
+          <Property Name="WOR_Role" Type="bit" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreateDateTime" Type="datetime" />
+          <Property Name="ModifiedUserID" Type="int" />
+          <Property Name="ModifiedDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblHREmployeeJobTitle">
+          <Key>
+            <PropertyRef Name="JobTitleID" />
+          </Key>
+          <Property Name="JobTitleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="100" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreateDateTime" Type="datetime" />
+          <Property Name="ModifiedUserID" Type="int" />
+          <Property Name="ModifiedDateTime" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="JobDescription" Type="varchar(max)" />
+          <Property Name="JobTypeID" Type="int" />
+          <Property Name="EmployeeTypeID" Type="int" />
+          <Property Name="ManagesOthers" Type="smallint" />
+          <Property Name="ReportsToID" Type="int" />
+          <Property Name="RequiresTravel" Type="real" />
+          <Property Name="DivisionID" Type="int" />
+          <Property Name="DepartmentID" Type="int" />
+          <Property Name="IsComplete" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblHREmployeeQualification">
+          <Key>
+            <PropertyRef Name="QualificationID" />
+          </Key>
+          <Property Name="QualificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Qualification" Type="varchar" MaxLength="100" />
+          <Property Name="Acronym" Type="varchar" MaxLength="10" />
+          <Property Name="CreateUserID" Type="int" />
+          <Property Name="CreateDateTime" Type="datetime" />
+          <Property Name="ModifiedUserID" Type="int" />
+          <Property Name="ModifiedDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblSYS_SchedulingRecurrenceUOM">
+          <Key>
+            <PropertyRef Name="SchedulingRecurrenceUOMID" />
+          </Key>
+          <Property Name="SchedulingRecurrenceUOMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="CalendarDays" Type="smallint" />
+          <Property Name="SchedulingNotAvailable" Type="bit" />
+          <Property Name="DefaultNotifyDays" Type="int" />
+        </EntityType>
+        <Function Name="sp_SYS_GetUserCredentials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="SSIRentModelStoreContainer">
+          <EntitySet Name="tblHREmployeeJobRoles" EntityType="Self.tblHREmployeeJobRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblHREmployeeJobTitle" EntityType="Self.tblHREmployeeJobTitle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblHREmployeeQualification" EntityType="Self.tblHREmployeeQualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSYS_SchedulingRecurrenceUOM" EntityType="Self.tblSYS_SchedulingRecurrenceUOM" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SSIRentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EmployeeJobRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobRole" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Special_Instructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WOR_Role" Type="Boolean" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedUserID" Type="Int32" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="EmployeeJobTitle">
+          <Key>
+            <PropertyRef Name="JobTitleID" />
+          </Key>
+          <Property Name="JobTitleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedUserID" Type="Int32" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="JobTypeID" Type="Int32" />
+          <Property Name="EmployeeTypeID" Type="Int32" />
+          <Property Name="ManagesOthers" Type="Int16" />
+          <Property Name="ReportsToID" Type="Int32" />
+          <Property Name="RequiresTravel" Type="Single" />
+          <Property Name="DivisionID" Type="Int32" />
+          <Property Name="DepartmentID" Type="Int32" />
+          <Property Name="IsComplete" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="SSIRentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EmployeeJobRoles" EntityType="SSIRentModel.EmployeeJobRole" />
+          <EntitySet Name="EmployeeJobTitles" EntityType="SSIRentModel.EmployeeJobTitle" />
+          <EntitySet Name="EmployeeQualifications" EntityType="SSIRentModel.EmployeeQualification" />
+          <FunctionImport Name="sp_Sys_Users" />
+          <FunctionImport Name="sp_SYS_GetUserInfo">
+          <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SYS_GetUserCredentials" ReturnType="Collection(SSIRentModel.User)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="SchedulingRecurrenceUOMs" EntityType="SSIRentModel.SchedulingRecurrenceUOM" />
+        </EntityContainer>
+        <EntityType Name="EmployeeQualification">
+          <Key>
+            <PropertyRef Name="QualificationID" />
+          </Key>
+          <Property Name="QualificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Qualification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Acronym" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreateUserID" Type="Int32" />
+          <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedUserID" Type="Int32" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="User">
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="WinADName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="EmployeeID" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="SchedulingRecurrenceUOM">
+          <Key>
+            <PropertyRef Name="SchedulingRecurrenceUOMID" />
+          </Key>
+          <Property Name="SchedulingRecurrenceUOMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalendarDays" Type="Int16" />
+          <Property Name="SchedulingNotAvailable" Type="Boolean" />
+          <Property Name="DefaultNotifyDays" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SSIRentModelStoreContainer" CdmEntityContainer="SSIRentEntities">
+          <EntitySetMapping Name="EmployeeJobRoles">
+            <EntityTypeMapping TypeName="SSIRentModel.EmployeeJobRole">
+              <MappingFragment StoreEntitySet="tblHREmployeeJobRoles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="JobRole" ColumnName="JobRole" />
+                <ScalarProperty Name="Special_Instructions" ColumnName="Special_Instructions" />
+                <ScalarProperty Name="WOR_Role" ColumnName="WOR_Role" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeJobTitles">
+            <EntityTypeMapping TypeName="SSIRentModel.EmployeeJobTitle">
+              <MappingFragment StoreEntitySet="tblHREmployeeJobTitle">
+                <ScalarProperty Name="JobTitleID" ColumnName="JobTitleID" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="JobTypeID" ColumnName="JobTypeID" />
+                <ScalarProperty Name="EmployeeTypeID" ColumnName="EmployeeTypeID" />
+                <ScalarProperty Name="ManagesOthers" ColumnName="ManagesOthers" />
+                <ScalarProperty Name="ReportsToID" ColumnName="ReportsToID" />
+                <ScalarProperty Name="RequiresTravel" ColumnName="RequiresTravel" />
+                <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeQualifications">
+            <EntityTypeMapping TypeName="SSIRentModel.EmployeeQualification">
+              <MappingFragment StoreEntitySet="tblHREmployeeQualification">
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="QualificationID" ColumnName="QualificationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_SYS_GetUserCredentials" FunctionName="SSIRentModel.Store.sp_SYS_GetUserCredentials">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SSIRentModel.User">
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="WinADName" ColumnName="WinADName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="SchedulingRecurrenceUOMs">
+            <EntityTypeMapping TypeName="SSIRentModel.SchedulingRecurrenceUOM">
+              <MappingFragment StoreEntitySet="tblSYS_SchedulingRecurrenceUOM">
+                <ScalarProperty Name="DefaultNotifyDays" ColumnName="DefaultNotifyDays" />
+                <ScalarProperty Name="SchedulingNotAvailable" ColumnName="SchedulingNotAvailable" />
+                <ScalarProperty Name="CalendarDays" ColumnName="CalendarDays" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SchedulingRecurrenceUOMID" ColumnName="SchedulingRecurrenceUOMID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

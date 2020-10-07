@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SSIRentModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="tblHREmployeeJobRoles">
+      <EntityTypeMapping TypeName="SSIRentModel.tblHREmployeeJobRole">
+        <MappingFragment StoreEntitySet="tblHREmployeeJobRoles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="JobRole" ColumnName="JobRole" />
+          <ScalarProperty Name="Special_Instructions" ColumnName="Special_Instructions" />
+          <ScalarProperty Name="WOR_Role" ColumnName="WOR_Role" />
+          <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+          <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

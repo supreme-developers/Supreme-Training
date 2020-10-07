@@ -1,0 +1,60 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<asp:Button runat="server" CssClass="btn btn-default hidden-print" />
+
+<asp:Button runat="server" SkinId="PrimaryButton" CssClass="btn btn-primary hidden-print" />
+
+<asp:Button runat="server" SkinId="WarningButton" CssClass="btn btn-warning hidden-print" />
+
+<asp:Button runat="server" SkinId="DangerButton" CssClass="btn btn-danger hidden-print" />
+
+<asp:Button runat="server" SkinId="SuccessButton" CssClass="btn btn-success hidden-print" />
+
+<asp:Button runat="server" SkinId="InfoButton" CssClass="btn btn-info hidden-print" />
+
+<asp:Button runat="server" SkinId="3DButton" CssClass=" btn btn-primary btn-lg btn3d btn-block" />
+
+<asp:Button runat="server" SkinId="HeroButton" CssClass="btn btn-hero btn-lg" />
+
+
+<asp:Button runat="server" SkinID="NoPrintDefaultButton" CssClass="btn btn-default hidden-print" />
+
+<asp:Button runat="server" SkinId="PositiveButton" CssClass="button positive hidden-print" />
+
+<asp:Button runat="server" SkinId="NegativeButton" CssClass="button negative hidden-print" />
+
+
+<asp:Button runat="server" SkinId="SmallDefaultButton" CssClass="btn btn-sm btn-default hidden-print" />
+                                   
+<asp:Button runat="server" SkinId="SmallPrimaryButton" CssClass="btn btn-sm btn-primary hidden-print" />
+                                   
+<asp:Button runat="server" SkinId="SmallWarningButton" CssClass="btn btn-sm btn-warning hidden-print" />
+                                   
+<asp:Button runat="server" SkinId="SmallDangerButton" CssClass="btn btn-sm btn-danger hidden-print" />
+                                   
+<asp:Button runat="server" SkinId="SmallSuccessButton" CssClass="btn btn-sm btn-success hidden-print" />
+
+
+<asp:Button runat="server" SkinId="LargeDefaultButton" CssClass="btn btn-lg btn-default hidden-print" />
+
+<asp:Button runat="server" SkinId="LargePrimaryButton" CssClass="btn btn-lg btn-primary hidden-print" />
+                                   
+<asp:Button runat="server" SkinId="LargeWarningButton" CssClass="btn btn-lg btn-warning hidden-print" />
+                                   
+<asp:Button runat="server" SkinId="LargeDangerButton" CssClass="btn btn-lg btn-danger hidden-print" />
+                                   
+<asp:Button runat="server" SkinId="LargeSuccessButton" CssClass="btn btn-lg btn-success hidden-print" />
