@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SSIRentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblHREmployee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeNumber" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MiddleInit" Type="varchar" MaxLength="1" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="30" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="60" />
+    <Property Name="ResidentCity" Type="varchar" MaxLength="30" />
+    <Property Name="ResidentState" Type="varchar" MaxLength="2" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="12" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="TerminationDate" Type="datetime" />
+    <Property Name="TraverseDepCode" Type="varchar" MaxLength="10" />
+    <Property Name="DepartmentID" Type="int" />
+    <Property Name="UseDefaultTimeOffDef" Type="smallint" />
+    <Property Name="CreateUserID" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="DepartmentOverRode" Type="bit" />
+    <Property Name="PhoneHome" Type="varchar" MaxLength="13" />
+    <Property Name="ContactWorkPhone" Type="varchar" MaxLength="13" />
+    <Property Name="ContactRelation" Type="varchar" MaxLength="20" />
+    <Property Name="JobTitleID" Type="int" />
+    <Property Name="SSN" Type="nvarchar" MaxLength="255" />
+    <Property Name="ContactHomePhone" Type="varchar" MaxLength="13" />
+    <Property Name="EmergencyContact" Type="varchar" MaxLength="20" />
+    <Property Name="ServiceHireDate" Type="datetime" />
+    <Property Name="DateOfBirth" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblHREmployeeJobRoles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobRole" Type="varchar" MaxLength="500" />
+    <Property Name="Special_Instructions" Type="varchar(max)" />
+    <Property Name="WOR_Role" Type="bit" />
+    <Property Name="CreateUserID" Type="int" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="ModifiedUserID" Type="int" />
+    <Property Name="ModifiedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblHREmployeeJobTitle">
+    <Key>
+      <PropertyRef Name="JobTitleID" />
+    </Key>
+    <Property Name="JobTitleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="40" />
+    <Property Name="CreateUserID" Type="int" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="ModifiedUserID" Type="int" />
+    <Property Name="ModifiedDateTime" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="JobDescription" Type="varchar(max)" />
+    <Property Name="JobTypeID" Type="int" />
+    <Property Name="EmployeeTypeID" Type="int" />
+    <Property Name="ManagesOthers" Type="smallint" />
+    <Property Name="ReportsToID" Type="int" />
+    <Property Name="RequiresTravel" Type="real" />
+    <Property Name="DivisionID" Type="int" />
+    <Property Name="DepartmentID" Type="int" />
+    <Property Name="IsComplete" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblHREmployeeQualification">
+    <Key>
+      <PropertyRef Name="QualificationID" />
+    </Key>
+    <Property Name="QualificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Qualification" Type="varchar" MaxLength="100" />
+    <Property Name="Acronym" Type="varchar" MaxLength="10" />
+    <Property Name="CreateUserID" Type="int" />
+    <Property Name="CreateDateTime" Type="datetime" />
+    <Property Name="ModifiedUserID" Type="int" />
+    <Property Name="ModifiedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblSYS_SchedulingRecurrenceUOM">
+    <Key>
+      <PropertyRef Name="SchedulingRecurrenceUOMID" />
+    </Key>
+    <Property Name="SchedulingRecurrenceUOMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="CalendarDays" Type="smallint" />
+    <Property Name="SchedulingNotAvailable" Type="bit" />
+    <Property Name="DefaultNotifyDays" Type="int" />
+  </EntityType>
+  <Function Name="sp_SYS_GetUserCredentials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="SSIRentModelStoreContainer">
+    <EntitySet Name="tblHREmployee" EntityType="Self.tblHREmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHREmployeeJobRoles" EntityType="Self.tblHREmployeeJobRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHREmployeeJobTitle" EntityType="Self.tblHREmployeeJobTitle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHREmployeeQualification" EntityType="Self.tblHREmployeeQualification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSYS_SchedulingRecurrenceUOM" EntityType="Self.tblSYS_SchedulingRecurrenceUOM" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

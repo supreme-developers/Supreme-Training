@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SSITrainingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Competency">
+    <Key>
+      <PropertyRef Name="CompetencyID" />
+    </Key>
+    <Property Name="CompetencyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompetencyGroupID" Type="Int32" Nullable="false" />
+    <Property Name="CompetencyStatusID" Type="Int32" Nullable="false" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CompetencyTypeID" Type="Int32" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="Int32" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedUserID" Type="Int32" />
+    <NavigationProperty Name="tblCACompetency1" Relationship="Self.FK_tblCACompetency_tblCACompetency" FromRole="tblCACompetency" ToRole="tblCACompetency1" />
+    <NavigationProperty Name="tblCACompetency2" Relationship="Self.FK_tblCACompetency_tblCACompetency" FromRole="tblCACompetency1" ToRole="tblCACompetency" />
+    <Property Name="LevelID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CompetencyDefHeader">
+    <Key>
+      <PropertyRef Name="CompDefHeaderID" />
+    </Key>
+    <Property Name="CompDefHeaderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobRoleID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PassingGrade" Type="Int16" />
+    <Property Name="NotifyDays" Type="Int16" />
+    <Property Name="CompetencyStatusID" Type="Int32" />
+    <Property Name="RecurrenceQty" Type="Int16" />
+    <Property Name="UOMSchedulingRecurrenceID" Type="Int32" />
+    <Property Name="CreateDatetime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="Int32" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="JobTitleID" Type="Int32" />
+    <Property Name="JobResponsibilityID" Type="Int32" />
+    <Property Name="Failure_RecurrenceQty" Type="Int16" />
+    <Property Name="Failure_UOMSchedulingRecurrenceID" Type="Int32" />
+    <NavigationProperty Name="tblCACompetency_AssessmentHeader" Relationship="SSITrainingModel.FK_tblCACompetency_AssessmentHeader_tblCACompetency_DefinitionHeader" FromRole="CompetencyDefHeader" ToRole="tblCACompetency_AssessmentHeader" />
+    <Property Name="NotifyEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TrainingTypeID" Type="Int32" />
+    <Property Name="ModifiedUserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CompetencyGroup">
+    <Key>
+      <PropertyRef Name="CompetencyGroupID" />
+    </Key>
+    <Property Name="CompetencyGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserId" Type="Int32" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedUserID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblCACompetency_Status">
+    <Key>
+      <PropertyRef Name="CompetencyStatusID" />
+    </Key>
+    <Property Name="CompetencyStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectStatusCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultRecord" Type="Boolean" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="Int32" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedUserID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CompetencyType">
+    <Key>
+      <PropertyRef Name="CompetencyTypeID" />
+      <PropertyRef Name="CompetencyTypeName" />
+    </Key>
+    <Property Name="CompetencyTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="Int32" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedUserID" Type="Int32" />
+    <Property Name="CompetencyTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_tblCACompetency_tblCACompetency">
+    <End Role="tblCACompetency" Type="SSITrainingModel.Competency" Multiplicity="1" />
+    <End Role="tblCACompetency1" Type="SSITrainingModel.Competency" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblCACompetency">
+        <PropertyRef Name="CompetencyID" />
+      </Principal>
+      <Dependent Role="tblCACompetency1">
+        <PropertyRef Name="CompetencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SSITrainingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Competencies" EntityType="SSITrainingModel.Competency" />
+    <EntitySet Name="CompetencyDefHeaders" EntityType="SSITrainingModel.CompetencyDefHeader" />
+    <EntitySet Name="CompetencyGroups" EntityType="SSITrainingModel.CompetencyGroup" />
+    <EntitySet Name="tblCACompetency_Status" EntityType="Self.tblCACompetency_Status" />
+    <EntitySet Name="CompetencyTypes" EntityType="SSITrainingModel.CompetencyType" />
+    <AssociationSet Name="FK_tblCACompetency_tblCACompetency" Association="Self.FK_tblCACompetency_tblCACompetency">
+      <End Role="tblCACompetency" EntitySet="Competencies" />
+      <End Role="tblCACompetency1" EntitySet="Competencies" />
+    </AssociationSet>
+    <FunctionImport Name="sp_CACompetency_AddEditCompetency" ReturnType="Collection(Int32)">
+      <Parameter Name="CompetencyID" Mode="In" Type="Int32" />
+      <Parameter Name="CompetencyGroupID" Mode="In" Type="Int32" />
+      <Parameter Name="Question" Mode="In" Type="String" />
+      <Parameter Name="Answer" Mode="In" Type="String" />
+      <Parameter Name="CompetencyTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="LevelID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_SetStatus">
+      <Parameter Name="CompID" Mode="In" Type="Int32" />
+      <Parameter Name="StatusCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_InsertCompetencyDefDetail">
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+      <Parameter Name="CompetencyID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_RemoveCompfromDefinition">
+      <Parameter Name="CompetencyID" Mode="In" Type="Int32" />
+      <Parameter Name="CompetencyDefHeaderID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetCompetencyDefinitions" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetCompetencyDefinitions_Result)" />
+    <FunctionImport Name="CompetencyHeader">
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_RemoveCompetencyDefinition">
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetManagerEmployees" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetManagerEmployees_Result)">
+      <Parameter Name="ManagerUserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetEmployeeCompetencies" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetEmployeeCompetencies_Result)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="CompetencyTasks" EntityType="SSITrainingModel.CompetencyTask" />
+    <FunctionImport Name="sp_CACompetency_UpdateSorts">
+      <Parameter Name="oldSort" Mode="In" Type="Int32" />
+      <Parameter Name="newSort" Mode="In" Type="Int32" />
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetCompetencyHeaderDetails" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetCompetencyHeaderDetails_Result)">
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_DeleteTask">
+      <Parameter Name="CompDefTaskID" Mode="In" Type="Int32" />
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetAssessors" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetAssessors_Result)" />
+    <EntitySet Name="EmployeeAssessmentDetails" EntityType="SSITrainingModel.EmployeeAssessmentDetail" />
+    <EntitySet Name="EmployeeAssessmentHeaders" EntityType="SSITrainingModel.EmployeeAssessmentHeader" />
+    <EntitySet Name="tblCACompetency_ManagerAccess" EntityType="SSITrainingModel.tblCACompetency_ManagerAccess" />
+    <AssociationSet Name="FK_tblCACompetency_AssessmentDetails_tblCACompetency_AssessmentHeader" Association="SSITrainingModel.FK_tblCACompetency_AssessmentDetails_tblCACompetency_AssessmentHeader">
+      <End Role="tblCACompetency_AssessmentHeader" EntitySet="EmployeeAssessmentHeaders" />
+      <End Role="tblCACompetency_AssessmentDetails" EntitySet="EmployeeAssessmentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCACompetency_AssessmentDetails_tblCACompetency_DefinitionTasks" Association="SSITrainingModel.FK_tblCACompetency_AssessmentDetails_tblCACompetency_DefinitionTasks">
+      <End Role="CompetencyTask" EntitySet="CompetencyTasks" />
+      <End Role="tblCACompetency_AssessmentDetails" EntitySet="EmployeeAssessmentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCACompetency_AssessmentHeader_tblCACompetency_DefinitionHeader" Association="SSITrainingModel.FK_tblCACompetency_AssessmentHeader_tblCACompetency_DefinitionHeader">
+      <End Role="CompetencyDefHeader" EntitySet="CompetencyDefHeaders" />
+      <End Role="tblCACompetency_AssessmentHeader" EntitySet="EmployeeAssessmentHeaders" />
+    </AssociationSet>
+    <FunctionImport Name="sp_CACompetency_GetManagerJobQualification_Access" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetManagerJobQualification_Access_Result)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetManagerJobRoles_Access" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetManagerJobRoles_Access_Result)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetManagerJobTitle_Access" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetManagerJobTitle_Access_Result)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_CompetencyDefHeader_Update">
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+      <Parameter Name="JobTitles" Mode="In" Type="String" />
+      <Parameter Name="JobRoles" Mode="In" Type="String" />
+      <Parameter Name="JobResponsibilities" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="NotifyDays" Mode="In" Type="Int16" />
+      <Parameter Name="NotifyEmail" Mode="In" Type="String" />
+      <Parameter Name="RecurrenceQty" Mode="In" Type="Int16" />
+      <Parameter Name="UOMSchedulingRecurrenceID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="TrainingTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_ManagerAssignments_Add">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+      <Parameter Name="ObjectType" Mode="In" Type="String" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_ManagerAssignments_Remove">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+      <Parameter Name="ObjectType" Mode="In" Type="String" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetActiveEmployees" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetActiveEmployees_Result)" />
+    <FunctionImport Name="sp_CACompetency_GetAllAssessors" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetAllAssessors_Result)" />
+    <FunctionImport Name="sp_CACompetency_GetSnapshotEmployees" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetSnapshotEmployees_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="isAdmin" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetAllEmployeeCompetencies" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetAllEmployeeCompetencies_Result1)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetUnAssigned_CompetencyDefinitions" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetUnAssigned_CompetencyDefinitions_Result)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_AddCompetency_toEmployeeSnapshot">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_DeleteCompetency_fromEmployeeSnapshot">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_sys_GetMobileLogin" ReturnType="Collection(SSITrainingModel.sp_sys_GetMobileLogin_Result)">
+      <Parameter Name="LastSix" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_CreateEmployeeAssessment" ReturnType="Collection(Int32)">
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="AssessorID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_UpdateEmpTaskCompetency">
+      <Parameter Name="CompetencyAssessment_DetailID" Mode="In" Type="Int32" />
+      <Parameter Name="IsCompetent" Mode="In" Type="Boolean" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_CompleteCompetency">
+      <Parameter Name="CompetencyAssessmentID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_FinalizeCompetency" ReturnType="Collection(SSITrainingModel.sp_CACompetency_FinalizeCompetency_Result)">
+      <Parameter Name="CompetencyAssessmentID" Mode="In" Type="Int32" />
+      <Parameter Name="AssessorID" Mode="In" Type="Int32" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="LastSix" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetEmployeeAssessment" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetEmployeeAssessment_Result)">
+      <Parameter Name="CompetencyAssessmentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetAssessor_Assessments" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetAssessor_Assessments_Result)">
+      <Parameter Name="AssessorID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_EmployeeIsAdmin" ReturnType="Collection(SSITrainingModel.sp_CACompetency_EmployeeIsAdmin_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Split" IsComposable="true" ReturnType="Collection(String)">
+      <Parameter Name="String" Mode="In" Type="String" />
+      <Parameter Name="Delimiter" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="CompetencyResponsibilities" EntityType="SSITrainingModel.CompetencyResponsibility" />
+    <EntitySet Name="CompetencyJobRoles" EntityType="SSITrainingModel.CompetencyJobRole" />
+    <EntitySet Name="CompetencyJobTitles" EntityType="SSITrainingModel.CompetencyJobTitle" />
+    <FunctionImport Name="CompDefHeader_Insert" ReturnType="Collection(Int32)">
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="JobTitles" Mode="In" Type="String" />
+      <Parameter Name="JobRoles" Mode="In" Type="String" />
+      <Parameter Name="JobResponsibilities" Mode="In" Type="String" />
+      <Parameter Name="TrainingTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_GetManagerCompetency_Access" ReturnType="Collection(SSITrainingModel.sp_CACompetency_GetManagerCompetency_Access_Result)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CACompetency_TwentyFourHourCheck" ReturnType="Collection(Boolean)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="CompDefHeaderID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="TrainingTypes" EntityType="SSITrainingModel.TrainingTypes" />
+  </EntityContainer>
+  <ComplexType Name="sp_CACompetency_GetCompetencyDefinitions_Result">
+    <Property Type="String" Name="DefinedBy" Nullable="true" MaxLength="510" />
+    <Property Type="String" Name="Recurrence" Nullable="true" MaxLength="69" />
+    <Property Type="Int32" Name="CompDefHeaderID" Nullable="false" />
+    <Property Type="Int32" Name="JobTitleID" Nullable="true" />
+    <Property Type="Int32" Name="JobRoleID" Nullable="true" />
+    <Property Type="Int32" Name="JobResponsibilityID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="Int16" Name="PassingGrade" Nullable="true" />
+    <Property Type="Int16" Name="NotifyDays" Nullable="true" />
+    <Property Type="Int32" Name="CompetencyStatusID" Nullable="true" />
+    <Property Type="Int16" Name="RecurrenceQty" Nullable="true" />
+    <Property Type="Int32" Name="UOMSchedulingRecurrenceID" Nullable="true" />
+    <Property Type="DateTime" Name="CreateDatetime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreateUserID" Nullable="true" />
+    <Property Type="DateTime" Name="ModifiedDateTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TrainingType" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="NotifyEmail" Nullable="true" MaxLength="200" />
+    <Property Type="Int16" Name="Failure_RecurrenceQty" Nullable="true" />
+    <Property Type="Int32" Name="Failure_UOMSchedulingRecurrenceID" Nullable="true" />
+    <Property Type="Int32" Name="ModifiedUserID" Nullable="true" />
+    <Property Type="Int32" Name="TrainingTypeID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetManagerEmployees_Result">
+    <Property Type="String" Name="name" Nullable="false" MaxLength="36" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetEmployeeCompetencies_Result">
+    <Property Type="String" Name="DefinedBy" Nullable="true" MaxLength="510" />
+    <Property Type="String" Name="Recurrence" Nullable="true" MaxLength="69" />
+    <Property Type="Int32" Name="CompDefHeaderID" Nullable="false" />
+    <Property Type="Int32" Name="JobTitleID" Nullable="true" />
+    <Property Type="Int32" Name="JobRoleID" Nullable="true" />
+    <Property Type="Int32" Name="JobResponsibilityID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="Int16" Name="PassingGrade" Nullable="true" />
+    <Property Type="Int16" Name="NotifyDays" Nullable="true" />
+    <Property Type="Int32" Name="CompetencyStatusID" Nullable="true" />
+    <Property Type="Int16" Name="RecurrenceQty" Nullable="true" />
+    <Property Type="Int32" Name="UOMSchedulingRecurrenceID" Nullable="true" />
+    <Property Type="DateTime" Name="CreateDatetime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreateUserID" Nullable="true" />
+    <Property Type="DateTime" Name="ModifiedDateTime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ModifiedUserId" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="CompetencyTask">
+    <Key>
+      <PropertyRef Name="CompDefTaskID" />
+    </Key>
+    <Property Name="CompDefTaskID" Type="Int32" Nullable="false" />
+    <Property Name="CompDefHeaderID" Type="Int32" />
+    <Property Name="Task" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="Int32" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedUserID" Type="Int32" />
+    <Property Name="Sort" Type="Int32" />
+    <NavigationProperty Name="tblCACompetency_AssessmentDetails" Relationship="SSITrainingModel.FK_tblCACompetency_AssessmentDetails_tblCACompetency_DefinitionTasks" FromRole="CompetencyTask" ToRole="tblCACompetency_AssessmentDetails" />
+  </EntityType>
+  <ComplexType Name="sp_CACompetency_GetCompetencyHeaderDetails_Result">
+    <Property Type="String" Name="DefinedBy" Nullable="true" MaxLength="510" />
+    <Property Type="Int32" Name="CompDefHeaderID" Nullable="false" />
+    <Property Type="Int32" Name="JobTitleID" Nullable="true" />
+    <Property Type="Int32" Name="JobRoleID" Nullable="true" />
+    <Property Type="Int32" Name="JobResponsibilityID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="Int16" Name="PassingGrade" Nullable="true" />
+    <Property Type="Int16" Name="NotifyDays" Nullable="true" />
+    <Property Type="Int32" Name="CompetencyStatusID" Nullable="true" />
+    <Property Type="Int16" Name="RecurrenceQty" Nullable="true" />
+    <Property Type="Int32" Name="UOMSchedulingRecurrenceID" Nullable="true" />
+    <Property Type="Int16" Name="Failure_RecurrenceQty" Nullable="true" />
+    <Property Type="Int32" Name="Failure_UOMSchedulingRecurrenceID" Nullable="true" />
+    <Property Type="DateTime" Name="CreateDatetime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreateUserID" Nullable="true" />
+    <Property Type="DateTime" Name="ModifiedDateTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NotifyEmail" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="TrainingType" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="ModifiedUserID" Nullable="true" />
+    <Property Type="Int32" Name="TrainingTypeID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetAssessors_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="36" />
+  </ComplexType>
+  <EntityType Name="EmployeeAssessmentDetail">
+    <Key>
+      <PropertyRef Name="CompetencyAssessment_DetailID" />
+    </Key>
+    <Property Name="CompetencyAssessment_DetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompetencyAssessmentID" Type="Int32" Nullable="false" />
+    <Property Name="CompetencyTaskID" Type="Int32" />
+    <Property Name="TaskRating" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblCACompetency_AssessmentHeader" Relationship="SSITrainingModel.FK_tblCACompetency_AssessmentDetails_tblCACompetency_AssessmentHeader" FromRole="tblCACompetency_AssessmentDetails" ToRole="tblCACompetency_AssessmentHeader" />
+    <NavigationProperty Name="tblCACompetency_DefinitionTasks" Relationship="SSITrainingModel.FK_tblCACompetency_AssessmentDetails_tblCACompetency_DefinitionTasks" FromRole="tblCACompetency_AssessmentDetails" ToRole="CompetencyTask" />
+    <Property Name="Competent" Type="Boolean" />
+    <Property Name="CreateEmployeeID" Type="Int32" />
+    <Property Name="ModifiedEmployeeID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EmployeeAssessmentHeader">
+    <Key>
+      <PropertyRef Name="CompetencyAssessmentID" />
+    </Key>
+    <Property Name="CompetencyAssessmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompetencyDefHeaderID" Type="Int32" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="CompetencyAssessorID" Type="Int32" />
+    <Property Name="DateAssessed" Type="DateTime" Precision="3" />
+    <Property Name="AssessmentGrade" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblCACompetency_AssessmentDetails" Relationship="SSITrainingModel.FK_tblCACompetency_AssessmentDetails_tblCACompetency_AssessmentHeader" FromRole="tblCACompetency_AssessmentHeader" ToRole="tblCACompetency_AssessmentDetails" />
+    <NavigationProperty Name="tblCACompetency_DefinitionHeader" Relationship="SSITrainingModel.FK_tblCACompetency_AssessmentHeader_tblCACompetency_DefinitionHeader" FromRole="tblCACompetency_AssessmentHeader" ToRole="CompetencyDefHeader" />
+    <Property Name="CreateEmployeeID" Type="Int32" />
+    <Property Name="ModifiedEmployeeID" Type="Int32" />
+    <Property Name="IsCompetent" Type="Boolean" />
+    <Property Name="EmployeeSign_LastSix" Type="Int32" />
+    <Property Name="PercentComplete" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblCACompetency_ManagerAccess">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="JobRoleID" Type="Int32" />
+    <Property Name="JobTitleID" Type="Int32" />
+    <Property Name="QualificationID" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserId" Type="Int32" />
+    <Property Name="ModifiedDatetime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedUserId" Type="Int32" />
+    <Property Name="CompDefHeaderID" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_tblCACompetency_AssessmentDetails_tblCACompetency_AssessmentHeader">
+    <End Type="SSITrainingModel.EmployeeAssessmentHeader" Role="tblCACompetency_AssessmentHeader" Multiplicity="1" />
+    <End Type="SSITrainingModel.EmployeeAssessmentDetail" Role="tblCACompetency_AssessmentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCACompetency_AssessmentHeader">
+        <PropertyRef Name="CompetencyAssessmentID" />
+      </Principal>
+      <Dependent Role="tblCACompetency_AssessmentDetails">
+        <PropertyRef Name="CompetencyAssessmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCACompetency_AssessmentDetails_tblCACompetency_DefinitionTasks">
+    <End Type="SSITrainingModel.CompetencyTask" Role="CompetencyTask" Multiplicity="0..1" />
+    <End Type="SSITrainingModel.EmployeeAssessmentDetail" Role="tblCACompetency_AssessmentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompetencyTask">
+        <PropertyRef Name="CompDefTaskID" />
+      </Principal>
+      <Dependent Role="tblCACompetency_AssessmentDetails">
+        <PropertyRef Name="CompetencyTaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCACompetency_AssessmentHeader_tblCACompetency_DefinitionHeader">
+    <End Type="SSITrainingModel.CompetencyDefHeader" Role="CompetencyDefHeader" Multiplicity="0..1" />
+    <End Type="SSITrainingModel.EmployeeAssessmentHeader" Role="tblCACompetency_AssessmentHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompetencyDefHeader">
+        <PropertyRef Name="CompDefHeaderID" />
+      </Principal>
+      <Dependent Role="tblCACompetency_AssessmentHeader">
+        <PropertyRef Name="CompetencyDefHeaderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_CACompetency_GetManagerJobQualification_Access_Result">
+    <Property Type="Int32" Name="QualificationID" Nullable="false" />
+    <Property Type="String" Name="Qualification" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Selected" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetManagerJobRoles_Access_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="JobRole" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="Selected" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetManagerJobTitle_Access_Result">
+    <Property Type="Int32" Name="JobTitleID" Nullable="false" />
+    <Property Type="String" Name="JobTitle" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Selected" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetActiveEmployees_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="36" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetAllAssessors_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="36" />
+    <Property Type="String" Name="EmployeeNumber" Nullable="false" MaxLength="11" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetSnapshotEmployees_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="36" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetAllEmployeeCompetencies_Result">
+    <Property Type="DateTime" Name="DateDue" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DefinedBy" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetAllEmployeeCompetencies_Result1">
+    <Property Type="String" Name="DateDue" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="CompetencyDefHeaderID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetUnAssigned_CompetencyDefinitions_Result">
+    <Property Type="String" Name="DefinedBy" Nullable="true" MaxLength="510" />
+    <Property Type="String" Name="Recurrence" Nullable="true" MaxLength="69" />
+    <Property Type="Int32" Name="CompDefHeaderID" Nullable="false" />
+    <Property Type="Int32" Name="JobTitleID" Nullable="true" />
+    <Property Type="Int32" Name="JobRoleID" Nullable="true" />
+    <Property Type="Int32" Name="JobResponsibilityID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="Int16" Name="PassingGrade" Nullable="true" />
+    <Property Type="Int16" Name="NotifyDays" Nullable="true" />
+    <Property Type="String" Name="NotifyEmail" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CompetencyStatusID" Nullable="true" />
+    <Property Type="Int16" Name="RecurrenceQty" Nullable="true" />
+    <Property Type="Int32" Name="UOMSchedulingRecurrenceID" Nullable="true" />
+    <Property Type="Int16" Name="Failure_RecurrenceQty" Nullable="true" />
+    <Property Type="Int32" Name="Failure_UOMSchedulingRecurrenceID" Nullable="true" />
+    <Property Type="DateTime" Name="CreateDatetime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreateUserID" Nullable="true" />
+    <Property Type="DateTime" Name="ModifiedDateTime" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ModifiedUserID" Nullable="true" />
+    <Property Type="Int32" Name="TrainingTypeID" Nullable="true" />
+    <Property Type="String" Name="TrainingType" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="sp_sys_GetMobileLogin_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="36" />
+    <Property Type="String" Name="EmployeeNumber" Nullable="false" MaxLength="11" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_FinalizeCompetency_Result">
+    <Property Type="Boolean" Name="isCompetent" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetEmployeeAssessment_Result">
+    <Property Type="Int32" Name="CompetencyAssessment_DetailID" Nullable="false" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Task" Nullable="true" />
+    <Property Type="Boolean" Name="Competent" Nullable="true" />
+    <Property Type="String" Name="ComptencyTitle" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="EmployeeSign_LastSix" Nullable="true" />
+    <Property Type="String" Name="LastSix" Nullable="false" MaxLength="6" />
+    <Property Type="Boolean" Name="IsCompetent" Nullable="true" />
+    <Property Type="String" Name="Employee" Nullable="false" MaxLength="36" />
+    <Property Type="String" Name="DateAssessed" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="EmployeeisCompetent" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="Assessor" Nullable="true" MaxLength="36" />
+    <Property Type="String" Name="PositiveLabel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NegativeLabel" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_GetAssessor_Assessments_Result">
+    <Property Type="Int32" Name="CompetencyDefHeaderID" Nullable="true" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="36" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DateDue" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Recurrence" Nullable="true" MaxLength="69" />
+    <Property Type="Decimal" Name="PercentComplete" Nullable="true" Precision="9" Scale="6" />
+    <Property Type="String" Name="EmployeeNumber" Nullable="false" MaxLength="11" />
+  </ComplexType>
+  <ComplexType Name="sp_CACompetency_EmployeeIsAdmin_Result">
+    <Property Type="Boolean" Name="isAdmin" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="CompetencyResponsibility">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompDefHeaderID" Type="Int32" />
+    <Property Name="JobResponsibilityID" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="Int32" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedUserID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CompetencyJobRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompDefHeaderID" Type="Int32" />
+    <Property Name="JobRoleID" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="Int32" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedUserID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CompetencyJobTitle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompDefHeaderID" Type="Int32" />
+    <Property Name="JobTitleID" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserID" Type="Int32" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedUserID" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="sp_CACompetency_GetManagerCompetency_Access_Result">
+    <Property Type="Int32" Name="CompDefHeaderID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Selected" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="TrainingTypes">
+    <Key>
+      <PropertyRef Name="TrainingTypeId" />
+    </Key>
+    <Property Name="TrainingTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrainingType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TrainingTypeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserId" Type="Int32" />
+    <Property Name="PositiveLabel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NegativeLabel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

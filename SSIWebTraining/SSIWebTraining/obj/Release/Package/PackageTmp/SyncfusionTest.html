@@ -1,0 +1,32 @@
+﻿<html  ng-app="listCtrl">
+<head>
+    <title>Essential Studio for AngularJS: Flat Grid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Essential Studio for JavaScript">
+    <meta name="author" content="Syncfusion">
+    <title></title>
+    <!-- Essential Studio for JavaScript  theme reference -->
+    <link rel="stylesheet" href="http://cdn.syncfusion.com/13.4.0.53/js/web/flat-azure/ej.web.all.min.css" />
+    <!-- Essential Studio for JavaScript  script references -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://cdn.syncfusion.com/js/assets/external/jsrender.min.js"></script>
+    <script src="http://cdn.syncfusion.com/13.4.0.53/js/web/ej.web.all.min.js"> </script>
+    <script src="http://cdn.syncfusion.com/13.4.0.53/js/web/ej.widget.angular.min.js"> </script>
+    <script>
+      angular.module('listCtrl', ['ejangular'])
+        .controller('GridCreationCtrl', function ($scope) {
+            $scope.shipdetails = [
+                         { Name: 'Hanari Carnes', City: 'Brazil' },
+                         { Name: 'Split Rail Beer & Ale', City: 'USA' },
+                         { Name: 'Ricardo Adocicados', City: 'Brazil' }
+            ];
+        });
+    </script>
+    <!-- Add your custom scripts here -->
+</head>
+<body ng-controller="GridCreationCtrl">
+    <div id="Grid" ej-grid e-datasource="shipdetails">
+    </div>
+   
+</body>
+</html>
