@@ -9,10 +9,10 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-4">
-                <a class="btn btn-outline-primary btn-sm print " onclick="isLoading()" asp-route-docpath="@Model.DownloadPath"
-                asp-controller="Documents" asp-action="Print">Print <i class="fas fa-print "></i></a>
-                @*<a class="btn btn-outline-success btn-sm"  asp-route-docpath="@Model.DownloadPath" 
-                    asp-controller="Documents" asp-action="Download">Download <i class="fas fa-download"></i></a>*@
+                @*<a class="btn btn-outline-primary btn-sm print " onclick="isLoading()" asp-route-docpath="@Model.DownloadPath"
+                asp-controller="Documents" asp-action="Print">Print <i class="fas fa-print "></i></a>*@
+                <a class="btn btn-outline-success btn-sm"  asp-route-docpath="@Model.DownloadPath" 
+                    asp-controller="Documents" asp-action="Download">Download<i class="fas fa-download"></i></a>
             </div>
            
             <div class="col-md-8">
@@ -22,8 +22,8 @@
         <div class="row">
             <div class="col-md-12" style="width:100%;height:auto">
                 <ejs-pdfviewer id="pdfviewer" style="height:800px" 
-                               serviceUrl="/api/PdfViewer" enableDownload="false"
-                               enablePrint="true" documentPath=@Model.DownloadPath></ejs-pdfviewer>
+                               serviceUrl="/api/PdfViewer" enableDownload="true"
+                               enablePrint="false" documentPath=@Model.DownloadPath></ejs-pdfviewer>
               
 
             </div>

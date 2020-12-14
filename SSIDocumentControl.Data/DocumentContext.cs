@@ -90,7 +90,6 @@ namespace SSIDocumentControl.Data
                 entity.ToTable("tblDocumentControl_MobileDocs");
                 entity.HasKey(e => e.DocId);
             });
-
             modelBuilder.Entity<Document>(entity =>
             {
                 entity.HasKey(e => e.DocId)
@@ -127,7 +126,6 @@ namespace SSIDocumentControl.Data
                     .HasForeignKey(d => d.FolderId)
                     .HasConstraintName("FK_tblDocumentControl_Documents_tblDocumentControl_Documents");
             });
-
             modelBuilder.Entity<DocumentFolder>(entity =>
             {
                 entity.HasKey(e => e.FolderId);
@@ -152,8 +150,7 @@ namespace SSIDocumentControl.Data
                     .WithMany(p => p.InverseParentFolder)
                     .HasForeignKey(d => d.ParentFolderId)
                     .HasConstraintName("FK_tblDocumentControl_Folders_tblDocumentControl_Folders");
-            });
-            
+            });            
         }
     }
 }

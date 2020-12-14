@@ -443,10 +443,10 @@ namespace SSIDocumentControl.Controllers
 
             //info.Arguments = String.Format(pdfPaths.DownloadPath);
             //Process p = Process.Start(info);
-            pdfPaths.DownloadPath = @"D:\test.pdf";
+            //pdfPaths.DownloadPath = @"D:\test.pdf";
 
-            return RedirectToAction("Index", "PdfViewer", pdfPaths);
-            //return new FileStreamResult(stream, "application/pdf");
+            //return RedirectToAction("Index", "PdfViewer", pdfPaths);
+            return new FileStreamResult(stream, "application/pdf");
 
 
         }
